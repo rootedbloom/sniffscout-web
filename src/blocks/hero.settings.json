@@ -1,0 +1,10 @@
+{
+ "hero-desc": "From pup cups to patio hangs, sniff out dog-friendly spots and all the little perks that make tails wag!",
+ "hero-search-placeholder": "City, ZIP or business name",
+ "hero-search-button": "Let's Sniff!",
+ "hero-search-label": "Where are we sniffing?",
+ "hero-dogs": {
+  "alt": "A Goldendoodle and a border collie waving, both wearing SniffScout bandanas",
+  "src": "https://assets.softr-files.com/applications/e2f1db9b-6197-4ad9-883f-a53fcec1da0a/assets/48871c65-417f-43d7-b2fd-558fee7d2931.png"
+ }
+}

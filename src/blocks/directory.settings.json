@@ -1,0 +1,20 @@
+{
+ "tagline": "Where to next, pup parent?",
+ "subtitle": "Discover dog-friendly places where you and your pup are always welcome.",
+ "brewery-photo": {
+  "alt": "Border collie lying on a brewery patio",
+  "src": "https://assets.softr-files.com/applications/e2f1db9b-6197-4ad9-883f-a53fcec1da0a/assets/f55b2418-8f29-4814-98e2-c9eccae14651.jpeg"
+ },
+ "cat-restaurants": {
+  "src": "https://assets.softr-files.com/applications/e2f1db9b-6197-4ad9-883f-a53fcec1da0a/assets/751e3816-51ca-4478-9ec1-56aa268b5793.jpeg",
+  "alt": "Goldendoodle with a burger, fries and a drink"
+ },
+ "cat-coffee": {
+  "src": "https://assets.softr-files.com/applications/e2f1db9b-6197-4ad9-883f-a53fcec1da0a/assets/da607155-9f01-43a8-917a-aa65685479f2.jpeg",
+  "alt": "Fluffy dog in sunglasses beside a latte"
+ },
+ "cat-breweries": {
+  "src": "https://assets.softr-files.com/applications/e2f1db9b-6197-4ad9-883f-a53fcec1da0a/assets/a2ea45c5-2bfe-4f7f-ac78-02c798309694.jpeg",
+  "alt": "Golden retriever in a navy cap beside a beer mug"
+ }
+}
