@@ -8,6 +8,10 @@ const nextConfig = {
   typescript: { ignoreBuildErrors: true },
   eslint: { ignoreDuringBuilds: true },
   images: { unoptimized: true },
+  // The old Top Dog Partners page now lives on For Businesses (same as on Softr).
+  async redirects() {
+    return [{ source: "/top-dog-partners", destination: "/for-businesses", permanent: true }];
+  },
   webpack: (config) => {
     config.resolve.alias["@"] = path.join(dir, "src");
     return config;
