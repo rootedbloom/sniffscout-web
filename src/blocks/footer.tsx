@@ -80,7 +80,7 @@ function JoinPack() {
         </div>
         <div className="order-1 text-center md:order-2 md:text-left">
           <h2 className="inline-flex items-center gap-3 font-extrabold" style={{ fontSize: "clamp(30px,5vw,46px)", lineHeight: 1.05, letterSpacing: "-0.03em", color: "#fff", margin: 0 }}><span>Join the Email <span style={{ color: "#FF5A0A" }}>Pack</span></span> <PawPrint aria-hidden="true" color="#FFFFFF" strokeWidth={2.6} style={{ width: "0.85em", height: "0.85em", flex: "none" }} /></h2>
-          <p className="mx-auto mt-3 max-w-[480px] text-[16px] font-semibold leading-snug md:mx-0" style={{ color: "rgba(255,255,255,.85)" }}>Get new dog-friendly finds around Northern Kentucky and Cincinnati, plus a first look as SniffScout grows.</p>
+          <p className="mx-auto mt-3 max-w-[480px] text-[16px] font-medium leading-snug md:mx-0" style={{ color: "rgba(255,255,255,.85)" }}>Get new dog-friendly finds around Northern Kentucky and Cincinnati, plus a first look as SniffScout grows.</p>
           {done ? (
             <div className="mt-6 flex items-center justify-center gap-3 rounded-2xl p-5 md:justify-start" style={{ background: "#FFF0E6", border: "2px solid #FFD9C2" }}>
               <CheckCircle2 className="h-8 w-8 flex-none" color="#15946B" />
