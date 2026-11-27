@@ -27,7 +27,7 @@ export default function Header() {
   useEffect(() => { try { setPath(window.location.pathname); } catch (e) {} }, []);
 
   return (
-    <header style={{ position: "sticky", top: 0, zIndex: 60, background: "#00163D", fontFamily: "Figtree,'Helvetica Neue',Arial,sans-serif", borderBottom: "3px solid #FF5A0A" }}>
+    <header style={{ position: "relative", zIndex: 60, background: "#00163D", fontFamily: "Figtree,'Helvetica Neue',Arial,sans-serif", borderBottom: "3px solid #FF5A0A" }}>
       <style>{CSS}</style>
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-5 py-2.5 md:px-10 md:py-3">
         <a href="/" aria-label="SniffScout home" className="block shrink-0">

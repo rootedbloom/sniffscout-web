@@ -19,7 +19,7 @@ export default async function Home() {
         <CtaCards />
         <KnowBeforeYouGo />
       </main>
-      <Footer />
+      <Footer gap />
     </>
   );
 }

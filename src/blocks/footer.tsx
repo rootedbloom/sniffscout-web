@@ -103,12 +103,14 @@ function JoinPack() {
   );
 }
 
-export default function Footer() {
+// gap: white strip above the Email Pack, same as the live site's footer block spacing (32px phones, 48px larger).
+export default function Footer({ gap = false }: { gap?: boolean }) {
   const H = ({ children }: { children: React.ReactNode }) => (
     <h4 className="mb-2.5 text-[11px] font-extrabold uppercase tracking-wider md:text-xs md:tracking-widest" style={{ color: "#FF7A3D", fontFamily: "'Bricolage Grotesque',Figtree,sans-serif" }}>{children}</h4>
   );
   return (
     <>
+      {gap && <div aria-hidden="true" className="h-8 md:h-12" style={{ background: "#fff" }} />}
       <JoinPack />
       <OnTheGo />
       <footer className="relative w-full" style={{ background: "#00163D", fontFamily: "Figtree,'Helvetica Neue',Arial,sans-serif" }}>
@@ -147,7 +149,7 @@ export default function Footer() {
               </div>
             </div>
           </div>
-          <div className="mt-5 flex flex-col items-start justify-between gap-1 border-t pt-3 md:mt-6 md:gap-2 md:pt-4 text-xs sm:flex-row sm:items-center" style={{ borderColor: "rgba(255,255,255,.14)", color: "rgba(255,255,255,.55)" }}>
+          <div className="mt-5 flex flex-col items-start justify-between gap-1 pt-3 md:mt-6 md:gap-2 md:pt-4 text-xs sm:flex-row sm:items-center" style={{ borderColor: "rgba(255,255,255,.14)", color: "rgba(255,255,255,.55)" }}>
             <p>© {new Date().getFullYear()} SniffScout. All rights reserved.</p>
             <p className="inline-flex items-center gap-1.5">Made with <Heart className="h-3.5 w-3.5" color="#FF7A3D" fill="#FF7A3D" strokeWidth={2.4} aria-label="love" /> for dog lovers</p>
           </div>
