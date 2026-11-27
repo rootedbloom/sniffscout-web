@@ -74,8 +74,11 @@ export const slugify = (s: string) =>
   s.normalize("NFKD").replace(/[̀-ͯ]/g, "").toLowerCase()
     .replace(/['’]/g, "").replace(/&/g, " and ").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 
-export const citySlug = (city: string) => slugify(city);
-export const stateSlug = (st: string) => slugify(st);
+// City pages keep the address format the Softr site used: /dog-friendly-places-union-ky
+const clean = (s: string) => s.replace(/\s+/g, " ").trim();
+export const citySlugOf = (city: string, st: string) =>
+  (clean(city) + "-" + clean(st)).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+export const cityPathOf = (city: string, st: string) => `/dog-friendly-places-${citySlugOf(city, st)}`;
 
 // Place slug = business name + city, without repeating the city when the
 // name already ends with it ("Braxton Brewing Company - Union" -> braxton-brewing-company-union).
@@ -101,20 +104,20 @@ export function getIndexedPlaces(): Promise<Place[]> {
         if (n > 1) slug = `${slug}-${n}`;
         const city = String(r.fields["City"] || "").trim();
         const state = String(r.fields["State"] || "").trim().toUpperCase();
-        return { ...r, slug, city, state, cityPath: `/${stateSlug(state)}/${citySlug(city)}` };
+        return { ...r, slug, city, state, cityPath: cityPathOf(city, state) };
       });
     });
   }
   return indexed;
 }
 
-export type CityInfo = { city: string; state: string; path: string; count: number };
+export type CityInfo = { city: string; state: string; slug: string; path: string; count: number };
 export async function getCities(): Promise<CityInfo[]> {
   const places = await getIndexedPlaces();
   const m = new Map<string, CityInfo>();
   for (const p of places) {
     if (!p.city || !p.state) continue;
-    const c = m.get(p.cityPath) || { city: p.city, state: p.state, path: p.cityPath, count: 0 };
+    const c = m.get(p.cityPath) || { city: p.city, state: p.state, slug: citySlugOf(p.city, p.state), path: p.cityPath, count: 0 };
     c.count++;
     m.set(p.cityPath, c);
   }
