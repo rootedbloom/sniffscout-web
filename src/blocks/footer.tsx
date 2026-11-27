@@ -115,7 +115,7 @@ export default function Footer({ gap = false, classic = false }: { gap?: boolean
   );
   return (
     <>
-      {gap && <div aria-hidden="true" className="h-8 md:h-12" style={{ background: "#fff" }} />}
+      {gap && <div aria-hidden="true" className={classic ? "h-12" : "h-8 md:h-12"} style={{ background: "#fff" }} />}
       <JoinPack classic={classic} />
       <OnTheGo />
       <footer className="relative w-full" style={{ background: "#00163D", fontFamily: "Figtree,'Helvetica Neue',Arial,sans-serif" }}>
@@ -154,7 +154,7 @@ export default function Footer({ gap = false, classic = false }: { gap?: boolean
               </div>
             </div>
           </div>
-          <div className="mt-5 flex flex-col items-start justify-between gap-1 pt-3 md:mt-6 md:gap-2 md:pt-4 text-xs sm:flex-row sm:items-center" style={{ borderColor: "rgba(255,255,255,.14)", color: "rgba(255,255,255,.55)" }}>
+          <div className="mt-5 flex flex-col items-start justify-between gap-1 pt-3 md:mt-6 md:gap-2 md:pt-4 text-xs sm:flex-row sm:items-center" style={{ borderTop: classic ? "1px solid rgba(255,255,255,.14)" : undefined, color: "rgba(255,255,255,.55)" }}>
             <p>© {new Date().getFullYear()} SniffScout. All rights reserved.</p>
             <p className="inline-flex items-center gap-1.5">Made with <Heart className="h-3.5 w-3.5" color="#FF7A3D" fill="#FF7A3D" strokeWidth={2.4} aria-label="love" /> for dog lovers</p>
           </div>
