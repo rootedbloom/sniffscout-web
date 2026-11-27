@@ -24,6 +24,7 @@ export const PUBLIC_FIELDS = [
   "Information Confidence", "Verification Method", "Business-Confirmed Perks",
   "Promotion Title", "Promotion Details", "Promotion Start", "Promotion End",
   "Promotion Approved", "Promotion Link", "Last Verified Date", "Claimed by Business",
+  "Outdoor Area Cooling", "Membership Status",
 ];
 
 async function fetchFromAirtable(token: string): Promise<PlaceRecord[]> {

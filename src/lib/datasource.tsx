@@ -45,10 +45,30 @@ export function useRecords(opts: { select: { __select: Record<string, string> };
   };
 }
 
-// Writes are switched off in this preview: no form can change Airtable yet.
-export function useRecordCreate(_opts: any) {
-  return { enabled: false, mutate: () => {}, mutateAsync: async () => {}, status: "idle", error: null, reset: () => {} };
+// The one record a detail page is about (Softr's "current record").
+const RecordCtx = createContext<{ id: string; fields: Record<string, any> } | null>(null);
+export function BlockRecord({ record, children }: { record: { id: string; fields: Record<string, any> }; children: ReactNode }) {
+  return <RecordCtx.Provider value={record}>{children}</RecordCtx.Provider>;
+}
+export const useCurrentRecordId = () => useContext(RecordCtx)?.id ?? null;
+export function useRecord(opts: { select: { __select: Record<string, string> }; [k: string]: any }) {
+  const r = useContext(RecordCtx);
+  const data = useMemo(() => (r ? mapRecord(r, opts.select.__select) : undefined), [r, opts.select]);
+  return { data, status: (r ? "success" : "error") as "success" | "error", error: null, isLoading: false, isFetching: false, refetch: async () => {} };
+}
+
+// Writes are switched off in this preview: forms show a "try again" message
+// and nothing is sent to Airtable. They get wired up before launch.
+const PREVIEW_ERR = new Error("Submissions are turned off on the preview site.");
+export function useRecordCreate(opts: any) {
+  return {
+    enabled: true, isPending: false, status: "idle", error: null, reset: () => {},
+    mutate: () => { try { opts?.onError?.(PREVIEW_ERR); } catch {} },
+    mutateAsync: async () => { try { opts?.onError?.(PREVIEW_ERR); } catch {} throw PREVIEW_ERR; },
+  };
 }
 export const useRecordUpdate = useRecordCreate;
 export const useRecordDelete = useRecordCreate;
-export const useCurrentRecordId = () => null;
+export function useUpload() {
+  return { uploadAsync: async (_f?: any) => [] as any[], upload: () => {}, isUploading: false };
+}
