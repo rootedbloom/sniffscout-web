@@ -23,8 +23,8 @@ const CSS = `
 .ss-kb-arrow{flex:none;transition:transform .18s ease}.ss-kb-btn:hover .ss-kb-arrow{transform:translateX(3px)}
 @keyframes ss-kb-rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 .ss-pre .ss-kb-card{opacity:0}
-.ss-in .ss-kb-card{animation:ss-kb-rise .55s ease backwards}
-.ss-in .ss-kb-card:nth-child(2){animation-delay:.1s}
+.ss-kbin .ss-kb-card{animation:ss-kb-rise .55s ease backwards}
+.ss-kbin .ss-kb-card:nth-child(2){animation-delay:.1s}
 @media (min-width:768px){
 .ss-kb{border-radius:50% 50% 0 0 / 48px 48px 0 0;padding:56px 40px 52px;margin-top:24px}
 .ss-kb-intro{font-size:16px}
@@ -35,7 +35,7 @@ const CSS = `
 }
 @media (hover:hover) and (min-width:768px){.ss-kb-card:hover{transform:translateY(-3px);box-shadow:0 2px 4px rgba(0,0,0,.12),0 18px 34px -14px rgba(0,0,0,.6)}.ss-kb-card:hover .ss-kb-badge{transform:scale(1.03)}}
 @media(min-width:1024px){.ss-kb-wrap{max-width:1000px}.ss-kb-card{grid-template-columns:200px minmax(0,1fr);justify-items:stretch;align-content:center;align-items:center;text-align:left;column-gap:22px;row-gap:0;padding:24px 26px}.ss-kb-text{text-align:left}.ss-kb-btnrow{grid-column:2;margin-top:14px;justify-content:flex-start}}
-@media (prefers-reduced-motion:reduce){.ss-pre .ss-kb-card{opacity:1}.ss-in .ss-kb-card{animation:none}.ss-kb-card,.ss-kb-badge,.ss-kb-btn{transition:none}}
+@media (prefers-reduced-motion:reduce){.ss-pre .ss-kb-card{opacity:1}.ss-kbin .ss-kb-card{animation:none}.ss-kb-card,.ss-kb-badge,.ss-kb-btn{transition:none}}
 `;
 
 export default function KnowBeforeYouGo() {
@@ -55,7 +55,7 @@ export default function KnowBeforeYouGo() {
       <div className="ss-kb-wrap">
         <h2 className="ss-kb-h">Know <span style={{ color: "#FF5A0A" }}>Before You Go</span></h2>
         <p className="ss-kb-intro">Look for these badges when sniffing out your next dog-friendly adventure!</p>
-        <div ref={gridRef} className={"ss-kb-grid" + (seen ? " ss-in" : " ss-pre")}>
+        <div ref={gridRef} className={"ss-kb-grid" + (seen ? " ss-kbin" : " ss-pre")}>
           <div className="ss-kb-card">
             <img src={VERIFIED_BADGE} alt="SniffScout Verified Dog-Friendly Business badge" width={1536} height={1024} className="ss-kb-badge" loading="lazy" decoding="async" />
             <div className="ss-kb-text">

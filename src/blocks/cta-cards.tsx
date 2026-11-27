@@ -9,8 +9,8 @@ const CLAIM_IMG = { src: "https://cdn.jsdelivr.net/gh/rootedbloom/sniffscout-sit
 
 const CSS = `
 .ss-cards{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;max-width:1180px;margin:0 auto;font-family:Manrope,'Helvetica Neue',Arial,sans-serif}
-.ss-card{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 108px;align-items:center;column-gap:12px;height:100%;box-sizing:border-box;background:#fff;border:1px solid #E5E9F0;border-radius:20px;padding:18px 16px 18px 18px;text-align:left;overflow:hidden;box-shadow:0 1px 2px rgba(0,22,61,.05),0 12px 28px -14px rgba(0,22,61,.22);transition:transform .2s ease,box-shadow .2s ease}
-.ss-card:hover{transform:translateY(-2px);box-shadow:0 2px 4px rgba(0,22,61,.06),0 18px 34px -14px rgba(0,22,61,.28)}
+.ss-ctc{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 108px;align-items:center;column-gap:12px;height:100%;box-sizing:border-box;background:#fff;border:1px solid #E5E9F0;border-radius:20px;padding:18px 16px 18px 18px;text-align:left;overflow:hidden;box-shadow:0 1px 2px rgba(0,22,61,.05),0 12px 28px -14px rgba(0,22,61,.22);transition:transform .2s ease,box-shadow .2s ease}
+.ss-ctc:hover{transform:translateY(-2px);box-shadow:0 2px 4px rgba(0,22,61,.06),0 18px 34px -14px rgba(0,22,61,.28)}
 .ss-text{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;min-width:0;position:relative;z-index:1}
 .ss-hrow{display:flex;align-items:flex-start;gap:7px}
 .ss-hpaw{flex:none;margin-top:3px;transform:rotate(-14deg)}
@@ -26,9 +26,9 @@ const CSS = `
 .ss-dogwrap--gr .ss-dog{max-height:108px}
 .ss-dogwrap--gsd .ss-dog{max-height:130px}
 .ss-dogwrap--gsd{height:130px}
-@media (max-width:359px){.ss-card{grid-template-columns:minmax(0,1fr) 88px;padding:16px 12px 16px 14px}.ss-dogwrap{height:100px}.ss-dogwrap--gr .ss-dog{max-height:90px}.ss-dogwrap--gsd .ss-dog{max-height:100px}.ss-btn{font-size:13px;padding:0 13px}}
+@media (max-width:359px){.ss-ctc{grid-template-columns:minmax(0,1fr) 88px;padding:16px 12px 16px 14px}.ss-dogwrap{height:100px}.ss-dogwrap--gr .ss-dog{max-height:90px}.ss-dogwrap--gsd .ss-dog{max-height:100px}.ss-btn{font-size:13px;padding:0 13px}}
 @media (min-width:640px){
-.ss-card{grid-template-columns:minmax(0,1fr) 38%;column-gap:16px;padding:26px 24px 26px 28px;min-height:232px;border-radius:24px}
+.ss-ctc{grid-template-columns:minmax(0,1fr) 38%;column-gap:16px;padding:26px 24px 26px 28px;min-height:232px;border-radius:24px}
 .ss-h{font-size:clamp(23px,2.2vw,27px)}
 .ss-hpaw{margin-top:5px}
 .ss-p{font-size:15px;margin:8px 0 16px;max-width:330px}
@@ -38,12 +38,12 @@ const CSS = `
 .ss-dogwrap--gsd .ss-dog{max-height:200px}
 }
 @media (min-width:1024px){.ss-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}}
-.ss-promo{position:relative;overflow:hidden;max-width:880px;margin:44px auto 0;box-sizing:border-box;background:#00163D;color:#fff;border:1.5px solid #FF5A0A;border-radius:26px;padding:24px 20px 22px;font-family:Manrope,'Helvetica Neue',Arial,sans-serif;box-shadow:0 22px 44px -18px rgba(0,22,61,.55);display:grid;gap:18px;text-align:center}
+.ss-ctpromo{position:relative;overflow:hidden;max-width:880px;margin:44px auto 0;box-sizing:border-box;background:#00163D;color:#fff;border:1.5px solid #FF5A0A;border-radius:26px;padding:24px 20px 22px;font-family:Manrope,'Helvetica Neue',Arial,sans-serif;box-shadow:0 22px 44px -18px rgba(0,22,61,.55);display:grid;gap:18px;text-align:center}
 .ss-paw{position:absolute;color:#fff;opacity:.08;pointer-events:none}
 .ss-pl{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center}
 .ss-pbadge{display:inline-block;background:#FF5A0A;color:#fff;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
-.ss-promo h3{font-family:'Bricolage Grotesque',Manrope,sans-serif;font-weight:800;font-size:clamp(23px,3vw,30px);line-height:1.1;letter-spacing:-.02em;margin:12px 0 0;color:#fff}
-.ss-promo .desc{margin:9px 0 0;font-size:15px;line-height:1.5;color:rgba(255,255,255,.88);font-weight:600;max-width:380px}
+.ss-ctpromo h3{font-family:'Bricolage Grotesque',Manrope,sans-serif;font-weight:800;font-size:clamp(23px,3vw,30px);line-height:1.1;letter-spacing:-.02em;margin:12px 0 0;color:#fff}
+.ss-ctpromo .desc{margin:9px 0 0;font-size:15px;line-height:1.5;color:rgba(255,255,255,.88);font-weight:600;max-width:380px}
 .ss-pr{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center}
 .ss-plabel{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:800;color:#FF9B68;letter-spacing:.04em}
 .ss-price{position:relative;margin-top:2px;font-family:'Bricolage Grotesque',Manrope,sans-serif;font-weight:800;color:#FF7A3D;line-height:1}
@@ -66,11 +66,11 @@ const CSS = `
 .ss-pfound b{font-size:14px;line-height:1.3;font-weight:800;color:#FF9B68}
 .ss-pfound span{font-size:12.5px;line-height:1.4;font-weight:600;color:rgba(255,255,255,.8);max-width:290px}
 @media (min-width:768px){.ss-pben{margin:16px 0 0;max-width:none}
-.ss-promo{grid-template-columns:1fr 1fr;align-items:center;gap:26px;padding:28px 32px;text-align:left}
+.ss-ctpromo{grid-template-columns:1fr 1fr;align-items:center;gap:26px;padding:28px 32px;text-align:left}
 .ss-pl{align-items:flex-start}
 .ss-pr{padding-left:28px;border-left:1px solid rgba(255,255,255,.14)}
 .ss-pcta{width:auto;white-space:nowrap}}
-@media (prefers-reduced-motion:reduce){.ss-card,.ss-btn,.ss-arrow,.ss-pcta{transition:none}.ss-card:hover,.ss-btn:hover,.ss-pcta:hover{transform:none}}
+@media (prefers-reduced-motion:reduce){.ss-ctc,.ss-btn,.ss-arrow,.ss-pcta{transition:none}.ss-ctc:hover,.ss-btn:hover,.ss-pcta:hover{transform:none}}
 `;
 
 export default function CtaCards() {
@@ -79,7 +79,7 @@ export default function CtaCards() {
     <section className="w-full px-4 pb-3 pt-5 md:px-10 md:pb-6 md:pt-8" style={{ background: "#fff" }}>
       <style>{CSS}</style>
       <div className="ss-cards">
-        <div className="ss-card">
+        <div className="ss-ctc">
           <div className="ss-text">
             <div className="ss-hrow"><PawPrint aria-hidden="true" className="ss-hpaw" size={18} color="#FF5A0A" fill="#FF5A0A" strokeWidth={1.5} /><h2 className="ss-h">Know a Great Spot?</h2></div>
             <p className="ss-p">Found a pup-friendly favorite? Help other dog lovers discover it!</p>
@@ -87,7 +87,7 @@ export default function CtaCards() {
           </div>
           <div className="ss-dogwrap ss-dogwrap--gr"><img className="ss-dog" src={SUBMIT_IMG.src} alt={SUBMIT_IMG.alt} width={680} height={691} loading="lazy" decoding="async" /></div>
         </div>
-        <div className="ss-card">
+        <div className="ss-ctc">
           <div className="ss-text">
             <div className="ss-hrow"><PawPrint aria-hidden="true" className="ss-hpaw" size={18} color="#00163D" fill="#00163D" strokeWidth={1.5} /><h2 className="ss-h">{nb("Own a Dog-Friendly Business?")}</h2></div>
             <p className="ss-p">Let dog lovers know they’re welcome! Claim your free listing and show off your pup perks.</p>
@@ -96,7 +96,7 @@ export default function CtaCards() {
           <div className="ss-dogwrap ss-dogwrap--gsd"><img className="ss-dog" src={CLAIM_IMG.src} alt={CLAIM_IMG.alt} width={560} height={829} loading="lazy" decoding="async" /></div>
         </div>
       </div>
-      <div className="ss-promo">
+      <div className="ss-ctpromo">
         <PawPrint aria-hidden="true" className="ss-paw" size={64} strokeWidth={1.5} style={{ left: -10, bottom: -14, transform: "rotate(-18deg)" }} />
         <PawPrint aria-hidden="true" className="ss-paw" size={40} strokeWidth={1.6} style={{ right: 18, top: 12, transform: "rotate(16deg)" }} />
         <PawPrint aria-hidden="true" className="ss-paw" size={28} strokeWidth={1.7} style={{ left: "48%", top: 14, transform: "rotate(-8deg)" }} />
