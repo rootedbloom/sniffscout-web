@@ -1,0 +1,7 @@
+/* Extra SniffScout orange on the city pages (Browse by City and each city). */
+.cp-chip{border-color:#FF5A0A!important;color:#00163D!important;background:#fff!important}
+.cp-chip:hover{background:#FFF0E6!important}
+.cp-chip[data-on="1"]{background:#FF5A0A!important;border-color:#FF5A0A!important;color:#fff!important}
+.cp-city{border-color:#FF5A0A!important;box-shadow:0 3px 0 #00163D!important}
+.cp-city:hover{background:#FFF6F0!important}
+.cp-city>span:last-child{background:#FF5A0A!important;color:#fff!important;font-weight:800}
