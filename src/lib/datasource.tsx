@@ -2,7 +2,7 @@
 // Stand-in for Softr's datasource hooks. Records are loaded on the server
 // (see lib/places.ts) and handed to the section through <BlockRecords>.
 // Field aliases from q.select({...}) map to Airtable field names, exactly as in Softr.
-import { createContext, useContext, useMemo, type ReactNode } from "react";
+import { createContext, useContext, useMemo, useState, type ReactNode } from "react";
 
 const RecordsCtx = createContext<{ id: string; fields: Record<string, any> }[]>([]);
 
@@ -57,18 +57,59 @@ export function useRecord(opts: { select: { __select: Record<string, string> }; 
   return { data, status: (r ? "success" : "error") as "success" | "error", error: null, isLoading: false, isFetching: false, refetch: async () => {} };
 }
 
-// Writes are switched off in this preview: forms show a "try again" message
-// and nothing is sent to Airtable. They get wired up before launch.
-const PREVIEW_ERR = new Error("Submissions are turned off on the preview site.");
+// Form saves go through this site's own server (app/api/forms), which writes to
+// Airtable with the same fields as the Softr forms. Until launch the server answers
+// with a "this is a preview" message, so nothing is saved.
+async function sendForm(form: string, data: any) {
+  const res = await fetch("/api/forms", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ form, data }) });
+  const json: any = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(json?.error || "We couldn't send that just now. Please try again.");
+  return { id: json.id, fields: data };
+}
 export function useRecordCreate(opts: any) {
+  const [isPending, setPending] = useState(false);
+  const mutateAsync = async (data: any) => {
+    setPending(true);
+    try {
+      const r = await sendForm(String(opts?.from ?? ""), data);
+      try { opts?.onSuccess?.(r); } catch {}
+      return r;
+    } catch (e) {
+      try { opts?.onError?.(e); } catch {}
+      throw e;
+    } finally { setPending(false); }
+  };
   return {
-    enabled: true, isPending: false, status: "idle", error: null, reset: () => {},
-    mutate: () => { try { opts?.onError?.(PREVIEW_ERR); } catch {} },
-    mutateAsync: async () => { try { opts?.onError?.(PREVIEW_ERR); } catch {} throw PREVIEW_ERR; },
+    enabled: true, isPending, status: isPending ? "pending" : "idle", error: null, reset: () => {},
+    mutate: (d: any) => { mutateAsync(d).catch(() => {}); },
+    mutateAsync,
   };
 }
-export const useRecordUpdate = useRecordCreate;
-export const useRecordDelete = useRecordCreate;
+// Nothing on the site edits or deletes records.
+const NO_WRITE = new Error("This action isn't available.");
+const noWrite = () => ({ enabled: false, isPending: false, status: "idle", error: null, reset: () => {}, mutate: () => {}, mutateAsync: async () => { throw NO_WRITE; } });
+export const useRecordUpdate = noWrite;
+export const useRecordDelete = noWrite;
+
+// Photos go straight from the browser to the site's Vercel Blob storage; the form
+// then sends their links and Airtable copies each photo when the record is saved.
 export function useUpload() {
-  return { uploadAsync: async (_f?: any) => [] as any[], upload: () => {}, isUploading: false };
+  const [isUploading, setUploading] = useState(false);
+  const uploadAsync = async (files: File[] | FileList) => {
+    const list = Array.from(files ?? []);
+    setUploading(true);
+    try {
+      const { upload } = await import("@vercel/blob/client");
+      return await Promise.all(list.map(async (file) => {
+        try {
+          const safe = (file.name || "photo").replace(/[^A-Za-z0-9._-]+/g, "-").slice(-80);
+          const b = await upload("submissions/" + safe, file, { access: "public", handleUploadUrl: "/api/upload", contentType: file.type || undefined });
+          return { status: "completed" as const, url: b.url, file };
+        } catch (e) {
+          return { status: "error" as const, url: "", file, error: e };
+        }
+      }));
+    } finally { setUploading(false); }
+  };
+  return { uploadAsync, upload: (f: any) => { uploadAsync(f).catch(() => {}); }, isUploading };
 }
