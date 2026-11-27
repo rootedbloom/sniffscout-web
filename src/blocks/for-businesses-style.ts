@@ -264,7 +264,8 @@ export const FB_CSS = `
 .fb-ck{width:21px;height:21px}
 .td .fb-ck{background:#FF5A0A;color:#00163D}
 .fb-plan .fb-btn{font-size:15.5px;min-height:50px;padding:0 20px}
-#plans{isolation:isolate}\\n.fb-rest{position:absolute;right:24px;line-height:0;pointer-events:none}
+#plans{isolation:isolate}
+.fb-rest{position:absolute;right:24px;line-height:0;pointer-events:none}
 .fb-rest .pkc img{max-width:none;display:block;filter:none}
 .fb-hcta .fb-btn{white-space:nowrap}
 .fb-hcta small{order:1}
