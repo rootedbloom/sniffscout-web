@@ -13,7 +13,7 @@ const LINKS = [
 const CTA = { label: "Submit a Spot 🐾", href: "/submit-a-place" };
 
 const CSS = `
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Figtree:wght@500;600;700;800&display=swap');
+
 .ss-nl{position:relative;color:#fff;font-weight:700;font-size:15px;text-decoration:none;padding:8px 2px;white-space:nowrap;transition:color .2s}
 .ss-nl:hover{color:#FF9B68}
 .ss-nl[data-on="1"]::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:3px;border-radius:3px;background:#FF5A0A}
