@@ -50,7 +50,9 @@ function OnTheGo() {
   );
 }
 
-function JoinPack() {
+// classic: the older Email Pack layout still used on the Directory page.
+const CLASSIC_PHOTO = { src: "https://assets.softr-files.com/applications/e2f1db9b-6197-4ad9-883f-a53fcec1da0a/assets/24607092-cf1f-49df-8467-30dfbcae2824.jpeg", alt: "A golden retriever in a navy bandana and a cavapoo in an orange bandana smiling on a cafe patio" };
+function JoinPack({ classic = false }: { classic?: boolean }) {
   const [first, setFirst] = useState("");
   const [email, setEmail] = useState("");
   const [done, setDone] = useState(false);
@@ -74,13 +76,16 @@ function JoinPack() {
       <style>{".ss-pack input:focus{outline:none;border-color:#FF5A0A!important;box-shadow:0 0 0 4px rgba(255,90,10,.18)}.ss-pack-btn{transition:transform .15s,box-shadow .15s,filter .15s}.ss-pack-btn:hover{filter:brightness(1.06);transform:translateY(-1px);box-shadow:0 8px 18px rgba(255,90,10,.35)!important}"}</style>
       <div className="ss-pack mx-auto grid max-w-[1180px] items-center gap-5 px-5 py-8 md:grid-cols-2 md:gap-10 md:px-10 md:py-10">
         <div className="order-2 mx-auto w-full max-w-[380px] md:order-1 md:mx-0 md:max-w-[480px] md:justify-self-end">
-          <div style={{ position: "relative", width: "100%", aspectRatio: "1252 / 828", borderRadius: 16, overflow: "hidden", boxShadow: "0 14px 28px -14px rgba(0,0,0,.5)" }}>
+          {classic ? <img src={CLASSIC_PHOTO.src} alt={CLASSIC_PHOTO.alt} className="block h-auto w-full" style={{ borderRadius: 16, boxShadow: "0 14px 28px -14px rgba(0,0,0,.5)" }} /> : <div style={{ position: "relative", width: "100%", aspectRatio: "1252 / 828", borderRadius: 16, overflow: "hidden", boxShadow: "0 14px 28px -14px rgba(0,0,0,.5)" }}>
             <img src={PACK_PHOTO.src} alt={PACK_PHOTO.alt} style={{ position: "absolute", left: "-6.39%", top: "-8.45%", width: "111.82%", maxWidth: "none", height: "auto", display: "block" }} />
-          </div>
+          </div>}
         </div>
         <div className="order-1 text-center md:order-2 md:text-left">
-          <h2 className="inline-flex items-center gap-3 font-extrabold" style={{ fontSize: "clamp(30px,5vw,46px)", lineHeight: 1.05, letterSpacing: "-0.03em", color: "#fff", margin: 0 }}><span>Join the Email <span style={{ color: "#FF5A0A" }}>Pack</span></span> <PawPrint aria-hidden="true" color="#FFFFFF" strokeWidth={2.6} style={{ width: "0.85em", height: "0.85em", flex: "none" }} /></h2>
-          <p className="mx-auto mt-3 max-w-[480px] text-[16px] font-medium leading-snug md:mx-0" style={{ color: "rgba(255,255,255,.85)" }}>Get new dog-friendly finds around Northern Kentucky and Cincinnati, plus a first look as SniffScout grows.</p>
+          {classic ? <>
+            <div className="inline-flex items-center gap-2 text-[12px] font-extrabold uppercase" style={{ color: "#FF7A33", letterSpacing: ".18em" }}><PawPrint className="h-4 w-4" strokeWidth={2.8} /> Email Pack</div>
+            <h2 className="mt-3 font-extrabold" style={{ fontSize: "clamp(30px,5vw,46px)", lineHeight: 1.05, letterSpacing: "-0.03em", color: "#fff", margin: "12px 0 0" }}>Join the Email Pack</h2>
+          </> : <h2 className="inline-flex items-center gap-3 font-extrabold" style={{ fontSize: "clamp(30px,5vw,46px)", lineHeight: 1.05, letterSpacing: "-0.03em", color: "#fff", margin: 0 }}><span>Join the Email <span style={{ color: "#FF5A0A" }}>Pack</span></span> <PawPrint aria-hidden="true" color="#FFFFFF" strokeWidth={2.6} style={{ width: "0.85em", height: "0.85em", flex: "none" }} /></h2>}
+          <p className={"mx-auto mt-3 max-w-[480px] text-[16px] leading-snug md:mx-0 " + (classic ? "font-semibold" : "font-medium")} style={{ color: "rgba(255,255,255,.85)" }}>Get new dog-friendly finds around Northern Kentucky and Cincinnati, plus a first look as SniffScout grows.</p>
           {done ? (
             <div className="mt-6 flex items-center justify-center gap-3 rounded-2xl p-5 md:justify-start" style={{ background: "#FFF0E6", border: "2px solid #FFD9C2" }}>
               <CheckCircle2 className="h-8 w-8 flex-none" color="#15946B" />
@@ -104,14 +109,14 @@ function JoinPack() {
 }
 
 // gap: white strip above the Email Pack, same as the live site's footer block spacing (32px phones, 48px larger).
-export default function Footer({ gap = false }: { gap?: boolean }) {
+export default function Footer({ gap = false, classic = false }: { gap?: boolean; classic?: boolean }) {
   const H = ({ children }: { children: React.ReactNode }) => (
     <h4 className="mb-2.5 text-[11px] font-extrabold uppercase tracking-wider md:text-xs md:tracking-widest" style={{ color: "#FF7A3D", fontFamily: "'Bricolage Grotesque',Figtree,sans-serif" }}>{children}</h4>
   );
   return (
     <>
       {gap && <div aria-hidden="true" className="h-8 md:h-12" style={{ background: "#fff" }} />}
-      <JoinPack />
+      <JoinPack classic={classic} />
       <OnTheGo />
       <footer className="relative w-full" style={{ background: "#00163D", fontFamily: "Figtree,'Helvetica Neue',Arial,sans-serif" }}>
         <style>{".ss-flink{display:inline-block;max-width:100%;color:rgba(255,255,255,.82);font-size:13px;line-height:1.3;text-decoration:none;overflow-wrap:break-word;transition:color .2s}.ss-fcol{min-width:0}.ss-fcol h4{margin-top:0;line-height:1.2}.ss-flink:hover{color:#FF9B68}"}</style>
