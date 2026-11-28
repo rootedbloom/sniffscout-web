@@ -3,27 +3,27 @@
  "stripe-link-founding": "https://buy.stripe.com/cNi28q1Pj8Ige1RgNwbsc00",
  "founding-open": true,
  "img-hero": {
-  "src": "https://assets.softr-files.com/applications/e2f1db9b-6197-4ad9-883f-a53fcec1da0a/assets/7349e32f-37ba-4e45-9d3d-3770849aa5c2.png",
+  "src": "https://lmqrgeh284epdg91.public.blob.vercel-storage.com/site/7349e32f-37ba-4e45-9d3d-3770849aa5c2.png",
   "alt": "Golden Retriever in an orange SniffScout bandana sitting on a dog-friendly café patio"
  },
  "img-doodle": {
   "alt": "Goldendoodle in a SniffScout bandana peeking over the card",
-  "src": "https://assets.softr-files.com/applications/e2f1db9b-6197-4ad9-883f-a53fcec1da0a/assets/8086b3aa-0d79-452d-b93d-07ddc12fa622.png"
+  "src": "https://lmqrgeh284epdg91.public.blob.vercel-storage.com/site/8086b3aa-0d79-452d-b93d-07ddc12fa622.png"
  },
  "img-corgi": {
   "alt": "Corgi in a SniffScout bandana peeking over the card",
-  "src": "https://assets.softr-files.com/applications/e2f1db9b-6197-4ad9-883f-a53fcec1da0a/assets/adb818f8-0086-4fae-b75c-13b3634075a6.png"
+  "src": "https://lmqrgeh284epdg91.public.blob.vercel-storage.com/site/adb818f8-0086-4fae-b75c-13b3634075a6.png"
  },
  "img-lab": {
-  "src": "https://assets.softr-files.com/applications/e2f1db9b-6197-4ad9-883f-a53fcec1da0a/assets/60b4f0de-88e0-4242-a4d2-f9daa8cbd8ea.png",
+  "src": "https://lmqrgeh284epdg91.public.blob.vercel-storage.com/site/60b4f0de-88e0-4242-a4d2-f9daa8cbd8ea.png",
   "alt": "Black Labrador in an orange bandana waving and holding an orange ball"
  },
  "img-play": {
   "alt": "Golden Retriever and fluffy white doodle playing together",
-  "src": "https://assets.softr-files.com/applications/e2f1db9b-6197-4ad9-883f-a53fcec1da0a/assets/ebdc523c-fe9e-4d6e-b162-8bd067de74c0.png"
+  "src": "https://lmqrgeh284epdg91.public.blob.vercel-storage.com/site/ebdc523c-fe9e-4d6e-b162-8bd067de74c0.png"
  },
  "img-jamie": {
-  "src": "https://assets.softr-files.com/applications/e2f1db9b-6197-4ad9-883f-a53fcec1da0a/assets/bad64916-acab-45dc-967d-39fc0c34d75a.png",
+  "src": "https://lmqrgeh284epdg91.public.blob.vercel-storage.com/site/bad64916-acab-45dc-967d-39fc0c34d75a.png",
   "alt": "Jamie, founder of SniffScout, sitting with her Goldendoodles Marley and Bella"
  },
  "img-final": {

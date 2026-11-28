@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 // Photos currently saved on the Softr About page.
-const A = "https://assets.softr-files.com/applications/e2f1db9b-6197-4ad9-883f-a53fcec1da0a/assets/";
+const A = "https://lmqrgeh284epdg91.public.blob.vercel-storage.com/site/";
 const photos = {
   "photo-hero-illustration": { src: A + "bad64916-acab-45dc-967d-39fc0c34d75a.png", alt: "Illustration of Jamie in her orange SniffScout shirt sitting with Marley the Goldendoodle and Bella the Cavapoo" },
   "photo-marley": { src: A + "3b2430d0-f649-4adf-a5f8-da30b8ff4f34.jpeg", alt: "Marley, Jamie's Goldendoodle, lying in the grass with her paw-print soccer ball and a big smile" },

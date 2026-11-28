@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 // Photo currently saved on the Softr Contact page.
 const photos = {
-  "contact-photo": { src: "https://assets.softr-files.com/applications/e2f1db9b-6197-4ad9-883f-a53fcec1da0a/assets/f735f81a-4e3d-442e-9d54-f7379a23c9fe.jpeg", alt: "Marley and Bella side by side on the couch" },
+  "contact-photo": { src: "https://lmqrgeh284epdg91.public.blob.vercel-storage.com/site/f735f81a-4e3d-442e-9d54-f7379a23c9fe.jpeg", alt: "Marley and Bella side by side on the couch" },
 };
 
 export default function ContactPage() {
