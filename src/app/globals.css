@@ -16,3 +16,15 @@ div.sss a { width: 36px; height: 36px; border-radius: 50%; background: #fff; dis
 div.sss a:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 6px 14px rgba(0,0,0,.3); }
 div.sss a:focus-visible { outline: 2px solid #FF9B68; outline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) { div.sss a { transition: none; } }
+
+/* Claim Your Business hero: no orange paw prints. */
+.cp section.cp-hero .cp-hero-paw { display: none; }
+
+/* Claim Your Business hero on phones: bigger dog, raised up beside the heading and intro. */
+@media (max-width: 699px) {
+  .cp section.cp-hero .cp-hero-in { grid-template-areas: none; grid-template-columns: minmax(0,1fr) 140px; column-gap: 8px; }
+  .cp section.cp-hero h1 { grid-area: auto; grid-column: 1 / -1; grid-row: 1; position: relative; z-index: 2; }
+  .cp section.cp-hero p { grid-area: auto; grid-column: 1; grid-row: 2; }
+  .cp section.cp-hero .cp-assure { grid-area: auto; grid-column: 1 / -1; grid-row: 3; }
+  .cp section.cp-hero .cp-hero-dog { grid-area: auto; grid-column: 2; grid-row: 1 / 3; width: 150px; align-self: end; justify-self: end; margin: 0 -10px -4px 0; }
+}
