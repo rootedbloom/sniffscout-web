@@ -104,6 +104,8 @@ function perksOf(f: any): string[] {
   return out;
 }
 
+const PS2_CSS = ".fb .fb-search.ps2{position:relative;overflow:hidden;background:#00163D;border:2px solid #FF5A0A;border-radius:20px;padding:20px 20px 18px;box-shadow:0 18px 40px -20px rgba(0,22,61,.55)}.fb .ps2>*{position:relative;z-index:1}.fb .ps2>.ps2-paw{position:absolute;z-index:0;color:#fff;opacity:.06;pointer-events:none}.fb .fb-search.ps2>h3{color:#fff!important;font-size:clamp(22px,3vw,27px);line-height:1.15;margin:0 0 10px}.fb .ps2>h3 em{font-style:normal;color:#FF5A0A}.fb .ps2 .fb-sic{width:42px;height:42px;border-radius:12px;background:#FF5A0A;color:#fff;box-shadow:none}.fb .fb-search.ps2>p.ps2-tag{margin:0 0 2px;font-size:15.5px;color:#FF9B68!important;font-weight:800!important}.fb .fb-search.ps2>p.ps2-sub{margin:0 0 14px;font-size:14.5px;line-height:1.45;color:rgba(255,255,255,.88)!important;font-weight:600!important}.fb .ps2 .fb-in{border:1.5px solid #FF5A0A;color:#00163D;background:#fff}.fb .ps2 .fb-in:focus{border-color:#FF5A0A;box-shadow:0 0 0 3px rgba(255,90,10,.3)}.fb .ps2 .fb-pnote{color:rgba(255,255,255,.85)}.fb .ps2 .fb-pnote svg{color:#FF5A0A;stroke:#FF5A0A}.fb .ps2 .fb-lbl.o{background:#FF5A0A}.fb .ps2 .fb-nv{background:#FF5A0A;box-shadow:none}.fb .ps2 .fb-nv:hover{background:#FF6F2B}@media(min-width:768px){.fb .fb-search.ps2{padding:24px 26px 20px}}";
+
 function PreviewSearch() {
   const [term, setTerm] = useState("");
   const [deb, setDeb] = useState("");
@@ -118,19 +120,23 @@ function PreviewSearch() {
   const verified = !!f.claimed && /^verified$/i.test(readable(f.status));
   const ph = photoOf(f.photo);
   return (
-    <div className={"fb-search" + (pick ? " wide" : "")}>
-      <h3 style={{ fontSize: 19, marginBottom: 4, display: "flex", alignItems: "center", gap: 10 }}><span className="fb-sic"><Search size={18} strokeWidth={2.8} /></span>See Your Business as a Top Dog</h3>
-      <p style={{ margin: "0 0 12px", fontSize: 14.5, color: "#3A4A63", fontWeight: 600 }}>Search for your business to preview how a Top Dog Partner listing could look.</p>
+    <div className={"fb-search ps2" + (pick ? " wide" : "")}>
+      <style>{PS2_CSS}</style>
+      <PawPrint aria-hidden="true" className="ps2-paw" size={70} fill="currentColor" strokeWidth={1.5} style={{ right: -14, top: -12, transform: "rotate(18deg)" }} />
+      <PawPrint aria-hidden="true" className="ps2-paw" size={52} fill="currentColor" strokeWidth={1.5} style={{ left: -12, bottom: -14, transform: "rotate(-22deg)" }} />
+      <h3 style={{ display: "flex", alignItems: "center", gap: 12 }}><span className="fb-sic"><Crown size={21} strokeWidth={2.4} /></span><span>Imagine Your Business as a <em>Top Dog!</em></span></h3>
+      <p className="ps2-tag">Get a sneak peek at your upgraded listing.</p>
+      <p className="ps2-sub">Search for your business and see how you could stand out from the pack.</p>
       {!pick && <div style={{ position: "relative" }}>
         <Search size={18} style={{ position: "absolute", left: 14, top: 14, color: "#FF5A0A" }} />
-        <input className="fb-in" value={term} onChange={(e) => setTerm(e.target.value)} placeholder="Start typing your business name…" aria-label="Business name" autoComplete="off" />
+        <input className="fb-in" value={term} onChange={(e) => setTerm(e.target.value)} placeholder="Enter your business name..." aria-label="Business name" autoComplete="off" />
         {deb.length >= 2 && <div style={{ border: "1.5px solid #E6CDBF", borderRadius: 14, overflow: "hidden", marginTop: 8, background: "#fff" }}>
           {res.status === "pending" && <div style={{ padding: "11px 14px", fontSize: 14, color: "#4A5370" }}>Sniffing around…</div>}
           {rows.map((r: any) => <button key={r.id} type="button" className="fb-res" onClick={() => { setPick(r); setTerm(""); }}><b style={{ display: "block" }}>{readable(r.fields?.name)}</b><span style={{ fontSize: 13, color: "#4A5370" }}>{[r.fields?.city, r.fields?.state].filter(Boolean).join(", ")}</span></button>)}
           {res.status === "success" && rows.length === 0 && <div style={{ padding: "12px 14px", fontSize: 14, color: "#2C3550" }}>We couldn't find that one yet. <a href={CLAIM} style={{ color: "#FF5A0A", fontWeight: 800 }}>Submit your business</a> and I'll take a look.</div>}
           {res.status === "error" && <div style={{ padding: "12px 14px", fontSize: 14, color: "#B42318", fontWeight: 700 }}>Search isn't available right now. Please try again in a bit.</div>}
         </div>}
-        <p className="fb-pnote"><ShieldCheck size={14} color="#FF5A0A" /> Preview only. Your live listing won't change.</p>
+        <p className="fb-pnote"><ShieldCheck size={14} color="#FF5A0A" /> Free preview. No commitment. Your live listing won't change.</p>
       </div>}
       {pick && <>
         <div className="fb-cmp" style={{ marginTop: 18 }}>
