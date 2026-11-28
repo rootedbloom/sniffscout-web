@@ -6,7 +6,7 @@ import { SSFooter } from "./softr-footer";
 import { ssTypoInit } from "@/lib/ss-typo";
 import {datasource,q,useRecordCreate,useUpload} from "@/lib/datasource";
 import {useImageSetting} from "@/lib/editable-settings";
-import {PawPrint,MapPin,Camera,Bone,CheckCircle2,ChevronDown,Mail} from "lucide-react";
+import {PawPrint,MapPin,Camera,Bone,CheckCircle2,ChevronDown,Mail,Clock} from "lucide-react";
 const ds=datasource.define({places:"places"});
 const fields=q.select({business:"Business Name",category:"Business Type",address:"Street Address",city:"City",state:"State",zip:"ZIP Code",website:"Website",phone:"Phone Number",areas:"Dog-Friendly Area",notes:"Dog-Friendly Notes",water:"Water Bowls Available",treats:"Dog Treats Available",menu:"Dog Menu Available",cups:"Pup Cups Available",cover:"Outdoor Area Coverage",heat:"Outdoor Area Heating",cool:"Outdoor Area Cooling",seating:"Outdoor Seating",access:"Dog Access",accessNote:"Dog Access Notes",status:"Listing Status",claimStatus:"Claim Status",confidence:"Information Confidence",source:"Submission Source",submitter:"Submitted By Name",email:"Submitter Email",relationship:"Submitter Relationship",lastVisit:"Submitter Last Visit",sid:"Submission ID",photos:"Additional Photos",permission:"Photo Usage Permission",pack:"Submitter Join the Pack"});
 const categories=["Restaurant/Bar","Coffee Shop","Brewery"];
@@ -101,6 +101,43 @@ const CSS2=`
 .sp-cheer{margin:2px 0 -6px;text-align:center;font-size:14px;line-height:1.45;font-weight:600;color:#46556A}
 .sp-claim{margin-top:30px}
 @media(max-width:699px){.sp-intro{margin:2px 0 16px}.sp-sec+.sp-sec{padding-top:20px}.sp-perk{min-height:50px}}
+/* Nov 28 2026: matches the Claim Your Business page. */
+.sp .sp-hero{padding:22px 18px 50px}
+.sp .sp-hero-in{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"e e" "h h" "p d" "a a";gap:0 12px;align-items:end}
+.sp .sp-eyebrow{grid-area:e}
+.sp .sp-hero h1{grid-area:h;font-size:clamp(28px,7.4vw,48px);margin:0 0 10px;text-wrap:balance}
+.sp .sp-hero p.sp-desc{grid-area:p;align-self:center;font-size:16px;line-height:1.55;color:rgba(255,255,255,.95);font-weight:500;max-width:520px}
+.sp .sp-hero-dog{grid-area:d;width:100px;align-self:center}
+.sp .sp-assure{grid-area:a;justify-self:start;display:inline-flex;align-items:center;gap:6px;margin:12px 0 0;padding:6px 12px;border-radius:999px;background:#FF5A0A;color:#fff;font-size:13px;line-height:1.3;font-weight:800;max-width:100%}
+.sp .sp-assure svg{flex:none;color:#fff}
+.sp .sp-bens{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:0 0 16px}
+.sp .sp-bens>div{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:7px;min-width:0;background:#00163D;border-radius:14px;padding:12px 4px;box-shadow:0 8px 18px -12px rgba(0,22,61,.6)}
+.sp .sp-bens .bi{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:#FF5A0A;color:#fff}
+.sp .sp-bens b{color:#fff;font-size:clamp(12.5px,3.7vw,15px);line-height:1.2;font-weight:800;text-wrap:balance}
+.sp form.sp-card{background:transparent;border:0;box-shadow:none;border-radius:0;padding:0;gap:14px}
+.sp form.sp-card>.sp-sec{background:#fff;border:1px solid #DCE6F2;border-left:4px solid #FF5A0A;border-radius:16px;box-shadow:0 8px 22px -14px rgba(0,22,61,.28);padding:16px 14px;gap:14px;margin:0}
+.sp form.sp-card>.sp-sec+.sp-sec{border-top:1px solid #DCE6F2;padding-top:16px;margin-top:0}
+.sp .sp-num{flex:none;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#FF5A0A;color:#fff;font:800 14.5px Figtree,sans-serif;letter-spacing:0}
+.sp .sp-sh{font-size:20px;line-height:1.2;margin:0;color:#00163D}
+.sp .sp-who{background:transparent;padding:0;border-radius:0}
+.sp .sp-cheer{margin:4px 0 -4px}
+.sp .sp-btn{min-height:56px;font-size:17.5px}
+@media(min-width:700px){
+ .sp .sp-hero{padding:34px 28px 62px}
+ .sp .sp-hero-in{grid-template-areas:"e d" "h d" "p d" "a d";grid-template-rows:1fr auto auto 1fr;gap:0 32px;align-items:center}
+ .sp .sp-eyebrow{align-self:end}
+ .sp .sp-hero h1{align-self:end}
+ .sp .sp-hero p.sp-desc{align-self:start;font-size:18px}
+ .sp .sp-hero-dog{width:180px}
+ .sp .sp-assure{align-self:start;margin-top:14px;font-size:14.5px;padding:8px 15px;gap:7px}
+ .sp .sp-bens{gap:14px;margin:0 0 22px}
+ .sp .sp-bens>div{padding:18px 12px 16px;gap:8px}
+ .sp .sp-bens .bi{width:48px;height:48px}
+ .sp form.sp-card>.sp-sec{padding:24px 26px;gap:16px}
+ .sp .sp-num{width:32px;height:32px;font-size:16px}
+ .sp .sp-sh{font-size:23px}
+ .sp .sp-main{max-width:820px}
+}
 `;
 function normUrl(v:string):{ok:boolean;url?:string}{const t=v.trim();if(!t)return {ok:true};if(/\s/.test(t))return {ok:false};const full=/^https?:\/\//i.test(t)?t:/^[a-z][a-z0-9+.-]*:/i.test(t)?"":"https://"+t;if(!full)return {ok:false};try{const u=new URL(full);if(!/^https?:$/.test(u.protocol)||!u.hostname.includes(".")||u.hostname.endsWith("."))return {ok:false};return {ok:true,url:u.toString()};}catch(e){return {ok:false};}}
 const digits=(v:string)=>v.replace(/\D/g,"").replace(/^1(?=\d{10}$)/,"");
@@ -149,17 +186,18 @@ export default function Block(){
  return <><div className="sp"><style>{CSS2}</style>
  <section className="sp-hero">
   <div className="sp-hero-in">
-   <div><p className="sp-eyebrow"><PawPrint size={14} strokeWidth={2.6} aria-hidden="true"/>Help the pack grow</p><h1>Know a Dog-Friendly Spot?</h1><p>Found a restaurant, brewery, or coffee shop that welcomes pups? Share it with the pack and help more dog lovers discover it!</p></div>
+   <p className="sp-eyebrow"><PawPrint size={14} strokeWidth={2.6} aria-hidden="true"/>Help the pack grow</p><h1>Know a Dog-Friendly <span style={{color:"#FF5A0A"}}>Spot?</span></h1><p className="sp-desc">Found a restaurant, brewery or coffee shop that welcomes pups? Share it with the pack!</p>
    {heroDog.src&&<img className="sp-hero-dog" src={heroDog.src} alt={heroDog.alt||""} width={680} height={691}/>}
+   <div className="sp-assure"><Clock size={16} strokeWidth={2.6} aria-hidden="true"/><span>Free to submit. Takes just 2 minutes!</span></div>
   </div>
   <svg className="sp-wave" viewBox="0 0 1440 46" preserveAspectRatio="none" aria-hidden="true"><path d="M0 46 C360 0 1080 0 1440 46 Z" fill="#EDF4FC"/><path d="M0 40 C360 -4 1080 -4 1440 40" stroke="#FF5A0A" strokeWidth="4" fill="none"/></svg>
  </section>
  <div className="sp-main">
+ <div className="sp-bens"><div><span className="bi" aria-hidden="true"><Clock size={21} strokeWidth={2.4}/></span><b>Quick &amp; Easy</b></div><div><span className="bi" aria-hidden="true"><PawPrint size={21} strokeWidth={2.4}/></span><b>Help the Pack</b></div><div><span className="bi" aria-hidden="true"><MapPin size={21} strokeWidth={2.4}/></span><b>Support Local</b></div></div>
  {done?<section className="sp-card" style={{textAlign:"center",justifyItems:"center",padding:"34px 22px"}}><CheckCircle2 color="#15946B" size={56}/><h2 style={{fontSize:"clamp(24px,5vw,32px)"}}>Thanks for sharing this spot! 🐾</h2><p style={{fontSize:16.5,lineHeight:1.5,margin:0,maxWidth:480,color:"#2B3B55"}}>It's been submitted for review. We'll verify the details before adding it to SniffScout.</p><a href="/" className="sp-btn" style={{width:"auto"}}>Back to SniffScout</a></section>:<>
- <div className="sp-intro"><h2>Tell Us About Your Favorite Spot! 🐾</h2><p>Just a few quick details and you're done!</p></div>
- <form className="sp-card" onSubmit={submit} noValidate={false}>
+  <form className="sp-card" onSubmit={submit} noValidate={false}>
   <div className="sp-sec">
-   <h3 className="sp-sh"><span className="sp-ic"><MapPin size={18} strokeWidth={2.5}/></span>About the place</h3>
+   <h3 className="sp-sh"><span className="sp-num">1</span>About the Place</h3>
    <div><label className="sp-lab" htmlFor="ss-biz">Business name *</label><input id="ss-biz" className="sp-in" required value={business} onChange={e=>setBusiness(e.target.value)} placeholder="What's the place called?" autoComplete="off"/></div>
    <div className="sp-row two"><div><label className="sp-lab" htmlFor="ss-cat">Category *</label><select id="ss-cat" className="sp-in" required value={category} onChange={e=>setCategory(e.target.value)}><option value="">Choose a category</option>{categories.map(x=><option key={x}>{x}</option>)}</select></div>
    <div><label className="sp-lab" htmlFor="ss-visit">When did you last visit? <span className="sp-opt">(optional)</span></label><select id="ss-visit" className="sp-in" value={lastVisit} onChange={e=>setLastVisit(e.target.value)}><option value="">Choose one</option>{visits.map(x=><option key={x}>{x}</option>)}</select></div></div>
@@ -172,13 +210,13 @@ export default function Block(){
    </div>}</div>
   </div>
   <div className="sp-sec">
-   <h3 className="sp-sh"><span className="sp-ic"><MapPin size={18} strokeWidth={2.5}/></span>Where Are Dogs Welcome?</h3>
+   <h3 className="sp-sh"><span className="sp-num">2</span>Where Are Dogs Welcome?</h3>
    <p className="sp-sub">Only choose what you know for sure. “Not sure” is totally fine. We'll verify before publishing.</p>
    <div className="sp-row two"><div><label className="sp-lab" htmlFor="ss-seat">Outdoor seating for dogs</label><select id="ss-seat" className="sp-in" value={seat} onChange={e=>setSeat(e.target.value)}><option value="">Not sure</option>{SEAT_OPTS.map(x=><option key={x}>{x}</option>)}</select></div><div><label className="sp-lab" htmlFor="ss-access">Where are dogs allowed?</label><select id="ss-access" className="sp-in" value={access} onChange={e=>setAccess(e.target.value)}><option value="">Not sure</option>{ACCESS_OPTS.map(x=><option key={x}>{x}</option>)}</select></div></div>
    <div><label className="sp-lab" htmlFor="ss-access-note">Restrictions or designated dog areas <span className="sp-opt">(optional)</span></label><input id="ss-access-note" className="sp-in" value={accessNote} onChange={e=>setAccessNote(e.target.value)} placeholder="e.g. Patio only, or after 4 PM"/></div>
   </div>
   <div className="sp-sec">
-   <h3 className="sp-sh"><span className="sp-ic"><Bone size={18} strokeWidth={2.5}/></span>What Pup Perks Have You Spotted?</h3>
+   <h3 className="sp-sh"><span className="sp-num">3</span>What Pup Perks Have You Spotted?</h3>
    <p className="sp-sub">Only select perks you've personally seen. We'll confirm the details before publishing!</p>
    <div className="sp-perks">{PERKS.map(x=><label key={x} className={"sp-perk"+(selected.includes(x)?" on":"")}><input type="checkbox" checked={selected.includes(x)} onChange={e=>togglePerk(x,e.target.checked)}/>{x==="Fans / cooling for summer"?"Fans/cooling for summer":x}</label>)}<label className={"sp-perk"+(notSure?" on":"")}><input type="checkbox" checked={notSure} onChange={e=>{setNotSure(e.target.checked);if(e.target.checked)setSelected([]);}}/>{NOT_SURE}</label></div>
    <div><label className="sp-lab" htmlFor="ss-notes">Anything Else Dog Lovers Should Know? <span className="sp-opt">(optional)</span></label><textarea id="ss-notes" className="sp-in" style={{minHeight:84}} value={notes} onChange={e=>setNotes(e.target.value)} placeholder="Fun details, friendly staff, pup events, best times to visit..."/></div>
@@ -186,7 +224,7 @@ export default function Block(){
   </div>
   <div className="sp-sec">
    <div className="sp-who">
-    <h3 className="sp-sh" style={{fontSize:19}}><span className="sp-ic" style={{background:"#fff"}}><Mail size={17} strokeWidth={2.5}/></span>Who's sharing this spot?</h3>
+    <h3 className="sp-sh"><span className="sp-num">4</span>Who's Sharing This Spot?</h3>
     <div><label className="sp-lab" htmlFor="ss-email">Your email *</label><input id="ss-email" className="sp-in" type="email" required value={email} onChange={e=>setEmail(e.target.value)} autoComplete="email"/><p className="sp-help">We'll only use your email if we need to follow up about your suggestion.</p><label style={{display:"flex",gap:9,alignItems:"flex-start",marginTop:10,fontSize:14,lineHeight:1.45,fontWeight:600,cursor:"pointer"}}><input type="checkbox" checked={pack} onChange={e=>setPack(e.target.checked)} style={{width:18,height:18,accentColor:"#FF5A0A",flex:"none",marginTop:1}}/><span>🐾 <b>Join the Pack!</b> Email me new dog-friendly spots and local pup news. <span className="sp-opt">(optional, unsubscribe anytime)</span></span></label></div>
     <div><button type="button" className="sp-more" aria-expanded={aboutYou} aria-controls="ss-you-panel" onClick={()=>setAboutYou(v=>!v)}><span>A Little About You <span className="sp-opt">(optional)</span></span><ChevronDown size={20}/></button>
     {aboutYou&&<div id="ss-you-panel" className="sp-panel"><div className="sp-row two"><div><label className="sp-lab" htmlFor="ss-name">Your name</label><input id="ss-name" className="sp-in" value={name} onChange={e=>setName(e.target.value)} autoComplete="name"/></div><div><label className="sp-lab" htmlFor="ss-rel">Your connection to this place</label><select id="ss-rel" className="sp-in" value={relationship} onChange={e=>setRelationship(e.target.value)}><option value="">Choose one</option>{["Customer / Visitor","Business Owner / Manager","Employee","Other"].map(x=><option key={x}>{x}</option>)}</select></div></div></div>}</div>
