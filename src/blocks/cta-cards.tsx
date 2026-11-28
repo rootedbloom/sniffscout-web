@@ -9,8 +9,8 @@ const CLAIM_IMG = { src: "https://cdn.jsdelivr.net/gh/rootedbloom/sniffscout-sit
 
 const CSS = `
 .ss-cards{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;max-width:1180px;margin:0 auto;font-family:Manrope,'Helvetica Neue',Arial,sans-serif}
-.ss-ctc{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 108px;align-items:center;column-gap:12px;height:100%;box-sizing:border-box;background:#fff;border:1px solid #E5E9F0;border-radius:20px;padding:18px 16px 18px 18px;text-align:left;overflow:hidden;box-shadow:0 1px 2px rgba(0,22,61,.05),0 12px 28px -14px rgba(0,22,61,.22);transition:transform .2s ease,box-shadow .2s ease}
-.ss-ctc:hover{transform:translateY(-2px);box-shadow:0 2px 4px rgba(0,22,61,.06),0 18px 34px -14px rgba(0,22,61,.28)}
+.ss-ctc{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 108px;align-items:center;column-gap:12px;height:100%;box-sizing:border-box;background:#fff;border:1px solid rgba(0,22,61,.12);border-radius:20px;padding:18px 16px 18px 18px;text-align:left;overflow:hidden;box-shadow:0 2px 6px rgba(0,22,61,.08),0 14px 30px -12px rgba(0,22,61,.17);transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+@media (hover:hover) and (pointer:fine){.ss-ctc:hover{transform:translateY(-4px);border-color:rgba(0,22,61,.18);box-shadow:0 4px 10px rgba(0,22,61,.10),0 24px 44px -14px rgba(0,22,61,.26)}}
 .ss-text{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;min-width:0;position:relative;z-index:1}
 .ss-hrow{display:flex;align-items:flex-start;gap:7px}
 .ss-hpaw{flex:none;margin-top:3px;transform:rotate(-14deg)}
