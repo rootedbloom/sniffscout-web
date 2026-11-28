@@ -12,4 +12,6 @@ Dog-friendly directory for getsniffscout.com. Listings come from the Airtable "P
 - `NEXT_PUBLIC_CONTACT_EMAIL`: public contact address shown in the footer
 - `ALLOW_INDEXING`: leave unset during preview; set to `true` only at launch so Google can index the site
 
+Forms were tested end to end on Nov 28 2026 and are switched off again until launch.
+
 Pages refresh from Airtable at most once an hour.
