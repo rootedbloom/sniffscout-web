@@ -56,7 +56,7 @@ function JoinPack({ classic = false }: { classic?: boolean }) {
           {classic ? <>
             <div className="inline-flex items-center gap-2 text-[12px] font-extrabold uppercase" style={{ color: "#FF7A33", letterSpacing: ".18em" }}><PawPrint className="h-4 w-4" strokeWidth={2.8} /> Email Pack</div>
             <h2 className="mt-3 font-extrabold" style={{ fontSize: "clamp(30px,5vw,46px)", lineHeight: 1.05, letterSpacing: "-0.03em", color: "#fff", margin: "12px 0 0" }}>Join the Email Pack</h2>
-          </> : <h2 className="inline-flex items-center gap-3 font-extrabold" style={{ fontSize: "clamp(30px,5vw,46px)", lineHeight: 1.05, letterSpacing: "-0.03em", color: "#fff", margin: 0 }}><span>Join the Email <span style={{ color: "#FF5A0A" }}>Pack</span></span> <PawPrint aria-hidden="true" color="#FFFFFF" strokeWidth={2.6} style={{ width: "0.85em", height: "0.85em", flex: "none" }} /></h2>}
+          </> : <h2 className="font-extrabold" style={{ fontSize: "clamp(30px,5vw,46px)", lineHeight: 1.05, letterSpacing: "-0.03em", color: "#fff", margin: 0 }}>Join the Email <span style={{ whiteSpace: "nowrap" }}><span style={{ color: "#FF5A0A" }}>Pack</span> <PawPrint aria-hidden="true" color="#FFFFFF" strokeWidth={2.6} style={{ width: "0.85em", height: "0.85em", display: "inline-block", verticalAlign: "-0.08em", marginLeft: "0.15em" }} /></span></h2>}
           <p className={"mx-auto mt-3 max-w-[480px] text-[16px] leading-snug md:mx-0 " + (classic ? "font-semibold" : "font-medium")} style={{ color: "rgba(255,255,255,.85)" }}>Get new dog-friendly finds around Northern Kentucky and Cincinnati, plus a first look as SniffScout grows.</p>
           {done ? (
             <div className="mt-6 flex items-center justify-center gap-3 rounded-2xl p-5 md:justify-start" style={{ background: "#FFF0E6", border: "2px solid #FFD9C2" }}>
@@ -65,7 +65,7 @@ function JoinPack({ classic = false }: { classic?: boolean }) {
             </div>
           ) : (
             <form onSubmit={submit} className="mt-5 grid gap-2.5" noValidate>
-              <div className="grid gap-2.5 sm:grid-cols-2">
+              <div className="grid gap-2.5 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
                 <input style={input} type="text" autoComplete="given-name" placeholder="First name (optional)" aria-label="First name" value={first} onChange={(e) => setFirst(e.target.value)} />
                 <input style={input} type="email" autoComplete="email" required placeholder="Your email" aria-label="Email address" value={email} onChange={(e) => setEmail(e.target.value)} />
               </div>
