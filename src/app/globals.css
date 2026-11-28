@@ -9,3 +9,10 @@ body { font-family: Manrope, "Helvetica Neue", Arial, sans-serif; color: #00163D
 
 /* Footer links: taller tap area without changing the visual spacing. */
 .ss-f2, .ssf-l, .ss-flink, .fb-f2 { padding: 5px 0; margin: -5px 0; }
+
+/* Footer social icons: white circles on every page. */
+div.sss { display: flex; gap: 12px; margin-top: 6px; }
+div.sss a { width: 36px; height: 36px; border-radius: 50%; background: #fff; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(0,0,0,.22); transition: transform .18s, box-shadow .18s; }
+div.sss a:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 6px 14px rgba(0,0,0,.3); }
+div.sss a:focus-visible { outline: 2px solid #FF9B68; outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { div.sss a { transition: none; } }
