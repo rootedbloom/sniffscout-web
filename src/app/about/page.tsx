@@ -22,6 +22,7 @@ const photos = {
   "photo-jamie-bella": { src: A + "eec44d70-54b4-4b8a-a9ec-2ae3a05ad883.jpeg", alt: "Jamie holding Bella, her Cavapoo" },
   "photo-bella": { src: A + "828a77c0-78cf-4ef0-aeea-05762148c3fc.jpeg", alt: "Bella, a Cavapoo, resting in her cozy gray dog bed and looking at the camera" },
   "photo-couch": { src: A + "63a2d874-bae7-4c2d-a2c3-ba49e8b577ee.jpeg", alt: "Marley and Bella side by side on the couch" },
+  "photo-cta-beagle": { src: "https://files.leadconnectorhq.com/file/6b0aece33abd65885509ae07/sniffscout-beagle.webp", alt: "Beagle in an orange SniffScout bandana sniffing the ground" },
 };
 
 export default function AboutPage() {

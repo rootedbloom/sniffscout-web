@@ -121,7 +121,7 @@ const PAGE_CSS = `
 .ab-g .ab-gmail a{color:#FF9B68;font-weight:800}
 .ab-gdog{position:relative;display:flex;justify-content:center;align-items:flex-end;margin-top:6px}
 .ab-gdog img{display:block;width:auto;max-width:64%;max-height:190px;margin-left:auto;margin-right:8%;height:auto;position:relative;z-index:1}
-.ab-gtrail{position:absolute;left:6%;bottom:14px;display:flex;align-items:flex-end;gap:14px;color:${ORANGE};opacity:.45}
+.ab-gtrail{position:absolute;left:6%;bottom:14px;display:flex;align-items:flex-end;gap:14px;color:${ORANGE};opacity:.7}
 .ab-gtrail svg{transform:rotate(90deg)}
 .ab-gtrail svg:nth-child(even){margin-bottom:12px}
 @media(min-width:760px){.ab-g{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);align-items:end;gap:20px;padding:40px 0 0 48px;text-align:left}.ab-g.nodog{grid-template-columns:1fr;padding:40px 48px;text-align:center}.ab-gtx{padding-bottom:36px}.ab-g.nodog .ab-gtx{padding-bottom:0}.ab-g p{margin:0;max-width:none}.ab-g.nodog p{margin:0 auto;max-width:600px}.ab-gbtns{flex-direction:row;flex-wrap:wrap;max-width:none;margin:22px 0 16px}.ab-g.nodog .ab-gbtns{justify-content:center}.ab-gdog{justify-content:flex-end;margin:0}.ab-gdog img{max-width:80%;max-height:330px;margin-right:0}.ab-gtrail{left:-8px;bottom:24px}}
