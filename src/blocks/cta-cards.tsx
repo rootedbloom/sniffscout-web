@@ -41,7 +41,7 @@ const CSS = `
 @media (min-width:1024px){.ss-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}}
 .ss-ctpromo{position:relative;overflow:hidden;max-width:880px;margin:44px auto 0;box-sizing:border-box;background:#00163D;color:#fff;border:1.5px solid #FF5A0A;border-radius:26px;padding:18px 20px 20px;font-family:Manrope,'Helvetica Neue',Arial,sans-serif;box-shadow:0 22px 44px -18px rgba(0,22,61,.55);display:grid;gap:14px;text-align:center}
 .ss-ptop{position:relative;z-index:1;display:flex;justify-content:center;margin-bottom:-6px}
-.ss-ptop img{display:block;width:132px;max-height:88px;object-fit:contain;height:auto;filter:drop-shadow(0 8px 14px rgba(0,0,0,.3))}
+.ss-ptop img{display:block;width:230px;max-width:78%;height:auto;filter:drop-shadow(0 10px 18px rgba(0,0,0,.35))}
 .ss-paw{position:absolute;color:#fff;opacity:.08;pointer-events:none}
 .ss-pl{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center}
 .ss-pbadge{display:inline-block;background:#FF5A0A;color:#fff;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px;line-height:1.3}
@@ -70,7 +70,7 @@ const CSS = `
 @media (min-width:768px){.ss-pben{margin:12px 0 0;max-width:none}
 .ss-ctpromo{grid-template-columns:1fr 1fr;align-items:center;gap:8px 26px;padding:16px 32px 24px;text-align:left}
 .ss-ptop{grid-column:1/-1;margin:-4px 0 -10px}
-.ss-ptop img{width:126px;max-height:84px}
+.ss-ptop img{width:220px;max-width:100%}
 .ss-pl{align-items:flex-start}
 .ss-pr{padding-left:28px;border-left:1px solid rgba(255,255,255,.14)}
 .ss-pcta{width:auto;white-space:nowrap}}
