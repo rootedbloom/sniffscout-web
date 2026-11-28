@@ -121,10 +121,10 @@ const PAGE_CSS = `
 .ab-g .ab-gmail a{color:#FF9B68;font-weight:800}
 .ab-gdog{position:relative;display:flex;justify-content:center;align-items:flex-end;margin-top:6px}
 .ab-gdog img{display:block;width:auto;max-width:64%;max-height:190px;margin-left:auto;margin-right:8%;height:auto;position:relative;z-index:1}
-.ab-gtrail{position:absolute;left:6%;bottom:14px;display:flex;align-items:flex-end;gap:14px;color:${ORANGE};opacity:.7}
-.ab-gtrail svg{transform:rotate(90deg)}
+.ab-gtrail{position:absolute;left:2%;bottom:14px;display:flex;align-items:flex-end;gap:10px;color:${ORANGE};opacity:.7}
+.ab-gtrail svg{transform:rotate(-135deg)}
 .ab-gtrail svg:nth-child(even){margin-bottom:12px}
-@media(min-width:760px){.ab-g{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);align-items:end;gap:20px;padding:40px 0 0 48px;text-align:left}.ab-g.nodog{grid-template-columns:1fr;padding:40px 48px;text-align:center}.ab-gtx{padding-bottom:36px}.ab-g.nodog .ab-gtx{padding-bottom:0}.ab-g p{margin:0;max-width:none}.ab-g.nodog p{margin:0 auto;max-width:600px}.ab-gbtns{flex-direction:row;flex-wrap:wrap;max-width:none;margin:22px 0 16px}.ab-g.nodog .ab-gbtns{justify-content:center}.ab-gdog{justify-content:flex-end;margin:0}.ab-gdog img{max-width:80%;max-height:330px;margin-right:0}.ab-gtrail{left:-8px;bottom:24px}}
+@media(min-width:760px){.ab-g{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);align-items:end;gap:20px;padding:40px 0 0 48px;text-align:left}.ab-g.nodog{grid-template-columns:1fr;padding:40px 48px;text-align:center}.ab-gtx{padding-bottom:36px}.ab-g.nodog .ab-gtx{padding-bottom:0}.ab-g p{margin:0;max-width:none}.ab-g.nodog p{margin:0 auto;max-width:600px}.ab-gbtns{flex-direction:row;flex-wrap:wrap;max-width:none;margin:22px 0 16px}.ab-g.nodog .ab-gbtns{justify-content:center}.ab-gdog{justify-content:flex-end;margin:0}.ab-gdog img{max-width:80%;max-height:330px;margin-right:0}.ab-gtrail{left:-60px;bottom:24px;gap:14px}}
 @media(prefers-reduced-motion:reduce){.ab-gb{transition:none}.ab-gb:hover{transform:none}}
 @media(max-width:759px){.ab-cta{padding:30px 18px}.ab-cta .btns{flex-direction:column;align-items:stretch;gap:12px;max-width:340px;margin-left:auto;margin-right:auto}.ab-cta .ab-btn{min-height:52px;width:100%}}
 @media(prefers-reduced-motion:reduce){.ab-deco{animation:none!important}.ab-card,.ab-btn{transition:none}}
@@ -256,7 +256,7 @@ export default function About() {
               {CONTACT_EMAIL && <p className="ab-gmail">Have a question or an idea? Email me at <a href={"mailto:" + CONTACT_EMAIL}>{CONTACT_EMAIL}</a>. I read every message.</p>}
             </div>
             {beagle.src && <div className="ab-gdog">
-              <span className="ab-gtrail" aria-hidden="true">{[0, 1, 2, 3].map((i) => <PawPrint key={i} size={16} fill="currentColor" strokeWidth={1.5} />)}</span>
+              <span className="ab-gtrail" aria-hidden="true">{[0, 1, 2, 3, 4, 5].map((i) => <PawPrint key={i} size={16} fill="currentColor" strokeWidth={1.5} />)}</span>
               <img src={beagle.src} alt={beagle.alt} loading="lazy" decoding="async" />
             </div>}
           </div>
