@@ -1,7 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Mail, PawPrint, ArrowRight, CheckCircle2, Heart, Smartphone, Globe, Share, Plus, Check, MoreVertical } from "lucide-react";
+import { Mail, PawPrint, ArrowRight, CheckCircle2, Heart } from "lucide-react";
 import { LOGO } from "@/lib/logo";
+import { OnTheGo } from "@/components/on-the-go";
 
 // The public contact address is set in the hosting settings (NEXT_PUBLIC_CONTACT_EMAIL).
 const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "";
@@ -21,37 +22,8 @@ function Social() {
   );
 }
 
-const SSG_CSS = ".ssg{background:#fff;font-family:Manrope,'Helvetica Neue',Arial,sans-serif;color:#00163D}.ssg *{box-sizing:border-box}.ssg-in{max-width:1180px;margin:0 auto;padding:26px 20px 28px;display:grid;gap:14px;align-items:center}.ssg-hrow{display:flex;align-items:center;gap:9px}.ssg h2{margin:0;font-size:22px;line-height:1.15;font-weight:800;letter-spacing:-.02em;color:#00163D}.ssg-intro p{margin:6px 0 0;font-size:15px;line-height:1.45;font-weight:600;color:#3A4A63;max-width:420px}.ssg-box{background:#F4F6F9;border-radius:16px;padding:14px}.ssg-tabs{display:inline-flex;gap:2px;background:#fff;border:1px solid #E3E8EF;border-radius:999px;padding:3px}.ssg-tabs button{border:0;background:transparent;color:#3A4A63;font:inherit;font-size:13.5px;font-weight:800;padding:0 16px;min-height:34px;border-radius:999px;cursor:pointer}.ssg-tabs button[aria-selected=true]{background:#00163D;color:#fff}.ssg-tabs button:focus-visible{outline:2px solid #FF5A0A;outline-offset:2px}.ssg-steps{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px}.ssg-steps li{display:flex;align-items:center;gap:9px;font-size:14.5px;line-height:1.35;font-weight:700;color:#00163D}.ssg-n{flex:none;width:22px;height:22px;border-radius:50%;background:#fff;border:1.5px solid #FF5A0A;color:#00163D;font-size:12px;font-weight:800;display:inline-flex;align-items:center;justify-content:center}.ssg-steps svg{flex:none}@media(min-width:768px){.ssg-in{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:40px;padding:34px 40px}.ssg h2{font-size:26px}.ssg-box{padding:16px 18px}.ssg-steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 20px}}";
-
-function OnTheGo() {
-  const [os, setOs] = useState("ios");
-  useEffect(() => { try { if (/android/i.test(navigator.userAgent)) setOs("android"); } catch (e) {} }, []);
-  const steps: any[] = os === "ios"
-    ? [[Globe, "Open getsniffscout.com in Safari"], [Share, "Tap the Share button"], [Plus, "Select “Add to Home Screen”"], [Check, "Tap Add"]]
-    : [[Globe, "Open getsniffscout.com in Chrome"], [MoreVertical, "Open the browser menu"], [Plus, "Select “Add to Home Screen” or “Install app”"]];
-  return (
-    <section className="ssg" aria-labelledby="ssg-h">
-      <style>{SSG_CSS}</style>
-      <div className="ssg-in">
-        <div className="ssg-intro">
-          <div className="ssg-hrow"><Smartphone size={24} color="#FF5A0A" strokeWidth={2.4} aria-hidden="true" /><h2 id="ssg-h">SniffScout on the Go!</h2></div>
-          <p>Add SniffScout to your home screen for quick access to dog-friendly spots.</p>
-        </div>
-        <div className="ssg-box">
-          <div className="ssg-tabs" role="tablist" aria-label="Choose your phone">
-            {[["ios", "iPhone"], ["android", "Android"]].map(([k, t]) => <button key={k} type="button" role="tab" aria-selected={os === k} onClick={() => setOs(k)}>{t}</button>)}
-          </div>
-          <ol className="ssg-steps" role="tabpanel">
-            {steps.map(([I, t], i) => <li key={t}><span className="ssg-n">{i + 1}</span><I size={16} color="#FF5A0A" strokeWidth={2.4} aria-hidden="true" /><span>{t}</span></li>)}
-          </ol>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 // classic: the older Email Pack layout still used on the Directory page.
-const CLASSIC_PHOTO = { src: "https://assets.softr-files.com/applications/e2f1db9b-6197-4ad9-883f-a53fcec1da0a/assets/24607092-cf1f-49df-8467-30dfbcae2824.jpeg", alt: "A golden retriever in a navy bandana and a cavapoo in an orange bandana smiling on a cafe patio" };
+const CLASSIC_PHOTO = { src: "https://lmqrgeh284epdg91.public.blob.vercel-storage.com/site/24607092-cf1f-49df-8467-30dfbcae2824.jpeg", alt: "A golden retriever in a navy bandana and a cavapoo in an orange bandana smiling on a cafe patio" };
 function JoinPack({ classic = false }: { classic?: boolean }) {
   const [first, setFirst] = useState("");
   const [email, setEmail] = useState("");
