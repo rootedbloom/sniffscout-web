@@ -152,6 +152,10 @@ function PreviewSearch() {
   );
 }
 
+const VERIFIED_BADGE = "https://files.leadconnectorhq.com/file/6b071c26522e78e8db172b76/sniffscout-verified-dog-friendly-badge.png";
+// Nov 28 2026 layout refinements (Find & Claim callout, plan cards, comparison width, founder tint, FAQ).
+const REFINE_CSS = ".fb .fb-packsec{padding:18px 0 20px}.fb .fb-pack2{gap:14px}.fb .fb-pack2 .fb-h2{font-size:clamp(22px,2.6vw,27px);margin:0 0 4px}.fb .fb-pack2 .fb-lead{margin:0;font-size:15.5px;max-width:none}.fb .fb-pack2 .fb-sublink{margin:6px 0 0;font-size:13.5px}.fb .fb-plan{height:100%;box-sizing:border-box}.fb .fb-plan>.fb-btn{margin-top:auto}.fb .fb-plan .fb-vb+.fb-btn{margin-top:0}.fb .fb-vb{margin:auto 0;display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;padding:4px 0 2px}.fb .fb-vb img{display:block;width:150px;height:auto}.fb .fb-vb p{margin:0;font-size:14px;line-height:1.4;font-weight:700;color:#00163D;max-width:260px}.fb .fb-plan .fb-tdcta,.fb .fb-plan .fb-tdcta:hover{box-shadow:none}.fb .fb-tdfine{margin-top:auto;display:grid;gap:6px}.fb .fb-tdfine .fb-note{margin:0}.fb .fb-plan .fb-tdfine+.fb-btn{margin-top:0}.fb .fb-tint{background:#FFF3EB;color:#00163D;position:relative}.fb .fb-tint .fb-founder p{color:#2C3550}.fb .fb-tpaw{position:absolute;color:#FF5A0A;opacity:.09;pointer-events:none}.fb .fb-tint .fb-founder{position:relative;z-index:1}.fb .fb-txt{background:#00163D;color:#fff;border:1px solid #00163D;box-shadow:none}.fb .fb-txt:hover{background:#0B2554}.fb .fb-txt svg{color:#fff}.fb .fb-q{font-size:16.5px;font-weight:800}.fb .fb-qi{border:1px solid rgba(0,22,61,.16)}.fb .fb-qi:hover{border-color:rgba(0,22,61,.3)}@media(min-width:760px){.fb .fb-packsec{padding:22px 0 24px}.fb .fb-pack2{padding:22px 30px 22px 34px;gap:28px}.fb .fb-vb img{width:170px}.fb .fb-sec .fb-cmp{max-width:830px}.fb .fb-rc{padding:16px}.fb .fb-rc.td .fb-rt{height:140px}.fb .fb-search{max-width:830px}.fb .fb-search.wide{max-width:830px}.fb .fb-search .fb-cmp{max-width:none}.fb .fb-q{font-size:17px;padding:16px 18px}}";
+
 const SSG_CSS=".ssg{background:#fff;font-family:Manrope,'Helvetica Neue',Arial,sans-serif;color:#00163D}.ssg *{box-sizing:border-box}.ssg-in{max-width:1180px;margin:0 auto;padding:26px 20px 28px;display:grid;gap:14px;align-items:center}.ssg-hrow{display:flex;align-items:center;gap:9px}.ssg h2{margin:0;font-size:22px;line-height:1.15;font-weight:800;letter-spacing:-.02em;color:#00163D}.ssg-intro p{margin:6px 0 0;font-size:15px;line-height:1.45;font-weight:600;color:#3A4A63;max-width:420px}.ssg-box{background:#F4F6F9;border-radius:16px;padding:14px}.ssg-tabs{display:inline-flex;gap:2px;background:#fff;border:1px solid #E3E8EF;border-radius:999px;padding:3px}.ssg-tabs button{border:0;background:transparent;color:#3A4A63;font:inherit;font-size:13.5px;font-weight:800;padding:0 16px;min-height:34px;border-radius:999px;cursor:pointer}.ssg-tabs button[aria-selected=true]{background:#00163D;color:#fff}.ssg-tabs button:focus-visible{outline:2px solid #FF5A0A;outline-offset:2px}.ssg-steps{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px}.ssg-steps li{display:flex;align-items:center;gap:9px;font-size:14.5px;line-height:1.35;font-weight:700;color:#00163D}.ssg-n{flex:none;width:22px;height:22px;border-radius:50%;background:#fff;border:1.5px solid #FF5A0A;color:#00163D;font-size:12px;font-weight:800;display:inline-flex;align-items:center;justify-content:center}.ssg-steps svg{flex:none}@media(min-width:768px){.ssg-in{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:40px;padding:34px 40px}.ssg h2{font-size:26px}.ssg-box{padding:16px 18px}.ssg-steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 20px}}.sss{display:flex;gap:10px;margin-top:2px}.sss a{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.1);display:inline-flex;align-items:center;justify-content:center;transition:background-color .15s,transform .15s}.sss a:hover{background:#FF5A0A;transform:translateY(-2px)}.sss a:focus-visible{outline:2px solid #FF9B68;outline-offset:3px}";
 const ssgSvg=(c)=><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF5A0A" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{c}</svg>;
 const SSGI={globe:ssgSvg(<><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></>),share:ssgSvg(<><path d="M12 15V3M7 8l5-5 5 5"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></>),plus:ssgSvg(<path d="M12 5v14M5 12h14"/>),check:ssgSvg(<path d="M5 12l5 5 9-10"/>),dots:ssgSvg(<><circle cx="12" cy="5" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="12" cy="19" r="1.4"/></>)};
@@ -212,7 +216,7 @@ export default function Block() {
 
   return (
     <div className="fb">
-      <style>{CSS}</style>
+      <style>{CSS + REFINE_CSS}</style>
       {welcome && (
         <div style={{ background: NAVY, padding: "18px 16px 6px" }}>
           <div role="status" style={{ maxWidth: 880, margin: "0 auto", display: "flex", gap: 14, alignItems: "flex-start", background: "#fff", color: NAVY, borderRadius: 18, border: "2px solid " + OR, borderLeftWidth: 8, padding: "18px 16px", boxShadow: "0 14px 32px -12px rgba(255,90,10,.55)" }}>
@@ -244,13 +248,12 @@ export default function Block() {
       </section>
 
       {/* ALREADY ON SNIFFSCOUT */}
-      <section className="fb-sec fb-peach" style={{ paddingTop: 34 }}>
+      <section className="fb-sec fb-peach fb-packsec">
         <div className="fb-w">
-          <div className="fb-pack">
+          <div className="fb-pack fb-pack2">
             <div style={{ position: "relative", zIndex: 1 }}>
-              <span className="fb-eye"><Search size={14} /> Already on SniffScout?</span>
-              <h2 className="fb-h2">Your Business Might Already Be Part of the Pack!</h2>
-              <p className="fb-lead">You may already have a free listing waiting. Claim it to confirm your details, share your pup perks, and earn your SniffScout Verified badge once approved. No payment required.</p>
+              <h2 className="fb-h2">Already Part of the Pack?</h2>
+              <p className="fb-lead">Your business might already be listed! Find and claim your free listing in minutes.</p>
               <p className="fb-sublink">Not listed yet? <a href={CLAIM}>Submit Your Business</a> on the same page by checking “My business isn't listed.”</p>
             </div>
             <a href={CLAIM} className="fb-btn fb-or" style={{ position: "relative", zIndex: 1 }}><Search size={18} /> Find &amp; Claim My Listing</a>
@@ -273,6 +276,7 @@ export default function Block() {
               <div><h3>Free Listing</h3><div className="fb-pr"><span className="fb-price">$0</span><span className="fb-per">forever</span></div></div>
               <ul className="fb-list">{FREE.map((t) => <li key={t}><Ck />{t}</li>)}</ul>
               <div className="fb-nope"><div className="fb-also" style={{ color: "#00163D" }}>Top Dog extras not included</div><ul>{TOPDOG_KEY.map(([I, t]) => <li key={t}><span className="fb-nx">–</span>{t}</li>)}</ul></div>
+              <div className="fb-vb"><img src={VERIFIED_BADGE} alt="SniffScout Verified Dog-Friendly Business badge" width={1536} height={1024} loading="lazy" decoding="async" /><p>Earn your Verified badge when your listing is approved.</p></div>
               <a href={CLAIM} className="fb-btn fb-nv">Claim Your Free Listing</a>
             </div>
             <div className="fb-plan td">
@@ -281,9 +285,9 @@ export default function Block() {
               {foundingOpen ? <div><h3 style={{ color: "#fff" }}>Founding Top Dog Partner</h3><div className="fb-pr"><span className="fb-price">$37</span><span className="fb-per">/month</span></div><div style={{ marginTop: 10, display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(255,255,255,.12)", borderRadius: 99, padding: "5px 12px", fontSize: 16, fontWeight: 800, color: "#fff" }}>Regularly <span style={{ textDecoration: "line-through", textDecorationColor: "#FF7A3D", textDecorationThickness: "2.5px" }}>$47/month</span></div><p style={{ margin: "12px 0 0", fontSize: 14.5, lineHeight: 1.5, color: "rgba(255,255,255,.9)", fontWeight: 600 }}>Lock in your founding rate for as long as your membership stays active.</p></div> : <div><h3 style={{ color: "#fff" }}>Top Dog Partner</h3><div className="fb-pr"><span className="fb-price">$47</span><span className="fb-per">/month</span></div></div>}
               <ul className="fb-key">{TOPDOG_KEY.map(([I, t, d]) => <li key={t}><span className="fb-kico"><I size={18} strokeWidth={2.4} /></span><span><b>{t}</b>{d}</span></li>)}</ul>
               <div><div className="fb-also">Also included</div><ul className="fb-list sm">{TOPDOG.map((t) => <li key={t}><Ck />{t}</li>)}</ul></div>
-              <a href={joinHref} className="fb-btn fb-or">{joinLabel}</a>
-              <p style={{ margin: "-6px 0 0", textAlign: "center", fontSize: 14, fontWeight: 800, color: "#FF9B68" }}>No setup fee. No contracts. Cancel anytime.</p>
-              <p className="fb-note">{checkoutLive ? "Secure checkout through Stripe." : "Online checkout is opening soon. Tap above to save your spot, or call or text me and I'll get you set up."}</p>
+              <div className="fb-tdfine"><p style={{ margin: 0, textAlign: "center", fontSize: 14, fontWeight: 800, color: "#FF9B68" }}>No setup fee. No contracts. Cancel anytime.</p>
+              <p className="fb-note">{checkoutLive ? "Secure checkout through Stripe." : "Online checkout is opening soon. Tap below to save your spot, or call or text me and I'll get you set up."}</p></div>
+              <a href={joinHref} className="fb-btn fb-or fb-tdcta">{joinLabel}</a>
             </div>
           </div>
         </div>
@@ -328,19 +332,22 @@ export default function Block() {
       </section>
 
       {/* FOUNDER */}
-      <section className="fb-sec fb-navy fb-blobs" style={{ overflow: "hidden" }}>
+      <section className="fb-sec fb-tint" style={{ overflow: "hidden" }}>
+        <PawPrint aria-hidden="true" className="fb-tpaw" size={56} fill="currentColor" strokeWidth={1.5} style={{ right: "4%", top: 26, transform: "rotate(18deg)" }} />
+        <PawPrint aria-hidden="true" className="fb-tpaw" size={40} fill="currentColor" strokeWidth={1.5} style={{ left: "3%", bottom: 30, transform: "rotate(-20deg)" }} />
+        <PawPrint aria-hidden="true" className="fb-tpaw" size={26} fill="currentColor" strokeWidth={1.5} style={{ right: "12%", bottom: 40, transform: "rotate(-8deg)" }} />
         <div className="fb-w">
           <div className="fb-founder">
             {jamieImg.src ? <div className="fb-jport"><img src={jamieImg.src} alt={jamieImg.alt} loading="lazy" /></div> : <div className="fb-jpic"><div className="ring" /><img src={BRAND_DOGS} alt="A Goldendoodle and a border collie waving, both wearing SniffScout bandanas" loading="lazy" /><span className="fb-deco" style={{ right: -8, top: 10 }}><StarSvg s={22} /></span><span className="fb-deco" style={{ left: -14, bottom: 26, animationDelay: "1.5s" }}><BoneSvg c="#FF7A3D" s={34} /></span></div>}
             <div style={{ position: "relative", zIndex: 1 }}>
-              <h2 className="fb-h2" style={{ color: "#fff", marginTop: 0 }}>Hey There! I'm Jamie! 🐾</h2>
+              <h2 className="fb-h2" style={{ color: NAVY, marginTop: 0 }}>Hey There! I'm <span style={{ color: OR }}>Jamie!</span> 🐾</h2>
               <p>I'm the founder of SniffScout, and I started this little adventure right here in Northern Kentucky to make it easier for dog lovers to discover places where their pups are welcome.</p>
               <p>We're starting with Northern Kentucky and Cincinnati, and my dream is to help dog-friendly businesses get discovered in communities all across the country.</p>
               <p>And when you reach out to SniffScout, you're talking directly to me. No sales team, no runaround. Just me, helping businesses like yours get noticed.</p>
-              <p style={{ fontWeight: 800, color: "#fff" }}>Questions? Call or text me at {PHONE_DISPLAY}. I'd love to hear from you!</p>
+              <p style={{ fontWeight: 800, color: NAVY }}>Questions? Call or text me at <span style={{ color: OR }}>{PHONE_DISPLAY}</span>. I'd love to hear from you!</p>
               <div className="fb-btns fb-jbtns" style={{ marginTop: 6 }}>
                 <a href={TEL} className="fb-btn fb-or"><Phone size={18} /> Call Jamie</a>
-                <a href={SMS} className="fb-btn fb-ghw"><MessageCircle size={18} /> Text Jamie</a>
+                <a href={SMS} className="fb-btn fb-nv fb-txt"><MessageCircle size={18} /> Text Jamie</a>
               </div>
             </div>
           </div>
