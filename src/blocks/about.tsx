@@ -96,6 +96,7 @@ const PAGE_CSS = `
 .ab-cta{padding:40px 48px}
 }
 .ab-fphoto.m{display:none}
+@media(min-width:760px) and (max-width:1023px){.ab-founder,.ab-origin{grid-template-columns:minmax(0,1fr);max-width:680px;gap:30px}.ab-fphoto.d{display:none}.ab-fphoto.m{display:block;margin:8px auto 26px!important}.ab-ophoto{max-width:420px}}
 @media(max-width:759px){.ab-fphoto.d{display:none}.ab-fphoto.m{display:block;margin:8px auto 26px!important}.ab-hero .txt{text-align:center}.ab-hero p{margin-left:auto;margin-right:auto}}
 .ab-blue{background:#EDF4FC;border-top:1px solid #DCE7F5;border-bottom:1px solid #DCE7F5}
 .ab-blue .ab-sub2{background:#fff;box-shadow:0 10px 26px rgba(0,22,61,.07)}
