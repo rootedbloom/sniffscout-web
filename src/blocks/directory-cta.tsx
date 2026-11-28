@@ -15,13 +15,13 @@ const SUBMIT = {
   title: "Know a Dog-Friendly Spot?",
   text: "Help fellow dog lovers discover great places to visit with their pups!",
   button: "Submit a Spot",
-  img: { src: "https://assets.softr-files.com/applications/e2f1db9b-6197-4ad9-883f-a53fcec1da0a/assets/2ed8f961-4c11-4d0d-ba61-74d1ffed4a37.jpeg", alt: "A happy dog at a patio table" },
+  img: { src: "https://lmqrgeh284epdg91.public.blob.vercel-storage.com/site/2ed8f961-4c11-4d0d-ba61-74d1ffed4a37.jpeg", alt: "A happy dog at a patio table" },
 };
 const CLAIM = {
   title: "Is Your Spot Dog-Friendly?",
   text: "Claim your free SniffScout listing, showcase your pup perks, and help local dog lovers discover your business.",
   button: "Claim Your Free Listing",
-  img: { src: "https://assets.softr-files.com/applications/e2f1db9b-6197-4ad9-883f-a53fcec1da0a/assets/f55b2418-8f29-4814-98e2-c9eccae14651.jpeg", alt: "A border collie relaxing on a brewery patio" },
+  img: { src: "https://lmqrgeh284epdg91.public.blob.vercel-storage.com/site/f55b2418-8f29-4814-98e2-c9eccae14651.jpeg", alt: "A border collie relaxing on a brewery patio" },
 };
 
 const navy = "#00163D";

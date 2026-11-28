@@ -1,7 +1,8 @@
 "use client";
 import { ArrowRight, Crown, PawPrint, Check } from "lucide-react";
 
-const TD_BENEFITS = ["Priority placement in relevant local searches", "Exclusive Top Dog Partner badge", "Enhanced business listing", "Showcase your specials and promotions", "Top Dog Partner window decal"];
+const TD_BENEFITS = ["Priority placement in relevant local searches", "Exclusive Top Dog Partner badge", "Enhanced business listing", "Showcase your specials and promotions", "Social media spotlight", "Top Dog Partner window decal"];
+const TOPDOG_BADGE = { src: "https://files.leadconnectorhq.com/file/6b071c26522e78e8db172b70/sniffscout-top-dog-partner-badge.png", alt: "SniffScout Top Dog Partner Dog-Friendly Business badge with crown" };
 // Turn off once all 20 founding spots are filled.
 const FOUNDING_OPEN = true;
 const SUBMIT_IMG = { src: "https://cdn.jsdelivr.net/gh/rootedbloom/sniffscout-sitemap@main/dog-golden-retriever.webp", alt: "Golden retriever wearing a SniffScout bandana and carrying an orange ball" };
@@ -38,35 +39,38 @@ const CSS = `
 .ss-dogwrap--gsd .ss-dog{max-height:200px}
 }
 @media (min-width:1024px){.ss-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}}
-.ss-ctpromo{position:relative;overflow:hidden;max-width:880px;margin:44px auto 0;box-sizing:border-box;background:#00163D;color:#fff;border:1.5px solid #FF5A0A;border-radius:26px;padding:24px 20px 22px;font-family:Manrope,'Helvetica Neue',Arial,sans-serif;box-shadow:0 22px 44px -18px rgba(0,22,61,.55);display:grid;gap:18px;text-align:center}
+.ss-ctpromo{position:relative;overflow:hidden;max-width:880px;margin:44px auto 0;box-sizing:border-box;background:#00163D;color:#fff;border:1.5px solid #FF5A0A;border-radius:26px;padding:18px 20px 20px;font-family:Manrope,'Helvetica Neue',Arial,sans-serif;box-shadow:0 22px 44px -18px rgba(0,22,61,.55);display:grid;gap:14px;text-align:center}
+.ss-ptop{position:relative;z-index:1;display:flex;justify-content:center;margin-bottom:-6px}
+.ss-ptop img{display:block;width:132px;max-height:88px;object-fit:contain;height:auto;filter:drop-shadow(0 8px 14px rgba(0,0,0,.3))}
 .ss-paw{position:absolute;color:#fff;opacity:.08;pointer-events:none}
 .ss-pl{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center}
-.ss-pbadge{display:inline-block;background:#FF5A0A;color:#fff;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
-.ss-ctpromo h3{font-family:'Bricolage Grotesque',Manrope,sans-serif;font-weight:800;font-size:clamp(23px,3vw,30px);line-height:1.1;letter-spacing:-.02em;margin:12px 0 0;color:#fff}
-.ss-ctpromo .desc{margin:9px 0 0;font-size:15px;line-height:1.5;color:rgba(255,255,255,.88);font-weight:600;max-width:380px}
+.ss-pbadge{display:inline-block;background:#FF5A0A;color:#fff;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px;line-height:1.3}
+.ss-ctpromo h3{font-family:'Bricolage Grotesque',Manrope,sans-serif;font-weight:800;font-size:clamp(23px,3vw,30px);line-height:1.1;letter-spacing:-.02em;margin:9px 0 0;color:#fff}
+.ss-ctpromo .desc{margin:7px 0 0;font-size:15px;line-height:1.5;color:rgba(255,255,255,.88);font-weight:600;max-width:380px}
 .ss-pr{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center}
 .ss-plabel{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:800;color:#FF9B68;letter-spacing:.04em}
 .ss-price{position:relative;margin-top:2px;font-family:'Bricolage Grotesque',Manrope,sans-serif;font-weight:800;color:#FF7A3D;line-height:1}
-.ss-price::before{content:"";position:absolute;left:50%;top:50%;width:210px;height:130px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(255,90,10,.38),rgba(255,90,10,0));z-index:-1}
 .ss-price b{font-size:58px;font-weight:800}
 .ss-price span{font-size:18px;font-weight:800;color:#fff;margin-left:3px}
 .ss-reg{margin-top:4px;font-size:14px;font-weight:700;color:rgba(255,255,255,.72)}
 .ss-reg s{text-decoration-thickness:2px}
-.ss-pcta{display:flex;width:100%;justify-content:center;align-items:center;gap:8px;min-height:50px;box-sizing:border-box;margin-top:16px;padding:13px 16px;border-radius:999px;background:#FF5A0A;color:#fff!important;font-weight:800;font-size:15px;white-space:nowrap;text-decoration:none!important;box-shadow:0 10px 24px rgba(255,90,10,.35);transition:transform .2s ease,box-shadow .2s ease}
-.ss-pcta:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(255,90,10,.5)}
+.ss-pcta{display:flex;width:100%;justify-content:center;align-items:center;gap:8px;min-height:50px;box-sizing:border-box;margin-top:14px;padding:13px 16px;border-radius:999px;background:#FF5A0A;color:#fff!important;font-weight:800;font-size:15px;white-space:nowrap;text-decoration:none!important;box-shadow:none;transition:transform .2s ease,background-color .2s ease}
+.ss-pcta:hover{transform:translateY(-2px);background:#FF6F2B}
 .ss-pcta:focus-visible{outline:3px solid #FF9B68;outline-offset:3px}
 .ss-pcta:hover .ss-arrow{transform:translateX(4px)}
 .ss-fine{margin-top:9px;font-size:12.5px;font-weight:700;color:rgba(255,255,255,.75)}
-.ss-pben{margin:16px auto 0;width:100%;max-width:340px;text-align:left}
+.ss-pben{margin:12px auto 0;width:100%;max-width:340px;text-align:left}
 .ss-pbt{margin:0 0 8px;font-size:14px;line-height:1.3;font-weight:800;color:#FF9B68}
-.ss-pben ul{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+.ss-pben ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
 .ss-pben li{display:flex;align-items:flex-start;gap:9px;font-size:14px;line-height:1.35;font-weight:700;color:#fff}
 .ss-pck{flex:none;margin-top:1px;color:#FF7A3D}
 .ss-pfound{margin-top:10px;display:flex;flex-direction:column;align-items:center;gap:3px;text-align:center}
 .ss-pfound b{font-size:14px;line-height:1.3;font-weight:800;color:#FF9B68}
 .ss-pfound span{font-size:12.5px;line-height:1.4;font-weight:600;color:rgba(255,255,255,.8);max-width:290px}
-@media (min-width:768px){.ss-pben{margin:16px 0 0;max-width:none}
-.ss-ctpromo{grid-template-columns:1fr 1fr;align-items:center;gap:26px;padding:28px 32px;text-align:left}
+@media (min-width:768px){.ss-pben{margin:12px 0 0;max-width:none}
+.ss-ctpromo{grid-template-columns:1fr 1fr;align-items:center;gap:8px 26px;padding:16px 32px 24px;text-align:left}
+.ss-ptop{grid-column:1/-1;margin:-4px 0 -10px}
+.ss-ptop img{width:126px;max-height:84px}
 .ss-pl{align-items:flex-start}
 .ss-pr{padding-left:28px;border-left:1px solid rgba(255,255,255,.14)}
 .ss-pcta{width:auto;white-space:nowrap}}
@@ -100,6 +104,7 @@ export default function CtaCards() {
         <PawPrint aria-hidden="true" className="ss-paw" size={64} strokeWidth={1.5} style={{ left: -10, bottom: -14, transform: "rotate(-18deg)" }} />
         <PawPrint aria-hidden="true" className="ss-paw" size={40} strokeWidth={1.6} style={{ right: 18, top: 12, transform: "rotate(16deg)" }} />
         <PawPrint aria-hidden="true" className="ss-paw" size={28} strokeWidth={1.7} style={{ left: "48%", top: 14, transform: "rotate(-8deg)" }} />
+        <div className="ss-ptop"><img src={TOPDOG_BADGE.src} alt={TOPDOG_BADGE.alt} width={1536} height={1024} loading="lazy" decoding="async" /></div>
         <div className="ss-pl">
           {FOUNDING_OPEN && <span className="ss-pbadge">Limited Founding Offer</span>}
           <h3>Calling All Dog-Friendly Businesses!</h3>
