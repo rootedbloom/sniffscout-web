@@ -11,9 +11,10 @@ const CSS = `
 .ss-kb-h{color:#fff;text-align:center;font-weight:800;font-size:clamp(26px,3.4vw,36px);line-height:1.1;letter-spacing:-.02em;margin:0}
 .ss-kb-intro{color:#C9D4EA;text-align:center;font-size:15px;font-weight:600;line-height:1.45;margin:8px auto 0;max-width:42ch}
 .ss-kb-card{position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;text-align:center;margin:20px auto 0;box-sizing:border-box;background:#fff;border:2px solid #FF5A0A;border-radius:20px;padding:16px 18px 20px;box-shadow:0 2px 4px rgba(0,0,0,.12),0 16px 34px -14px rgba(255,90,10,.45)}
-.ss-kb-paw{position:absolute;color:#FF5A0A;opacity:.1;pointer-events:none}
-.ss-kb-paw1{top:-8px;right:-6px;transform:rotate(18deg)}
-.ss-kb-paw2{bottom:-10px;left:-8px;transform:rotate(-20deg)}
+.ss-kb-paw{position:absolute;color:#FF5A0A;opacity:.2;pointer-events:none}
+.ss-kb-paw1{top:12px;right:12px;transform:rotate(18deg)}
+.ss-kb-paw2{bottom:12px;left:12px;transform:rotate(-20deg)}
+@media(max-width:374px){.ss-kb-paw2{display:none}}
 .ss-kb-bw{position:relative;z-index:1;flex:none}
 .ss-kb-badge{display:block;width:210px;max-width:80vw;height:auto;aspect-ratio:3/2;object-fit:contain}
 .ss-kb-body{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center}
@@ -60,8 +61,8 @@ export default function KnowBeforeYouGo() {
         <h2 className="ss-kb-h">Know <span style={{ color: "#FF5A0A" }}>Before You Go</span></h2>
         <p className="ss-kb-intro">Less guessing. More tail wagging!</p>
         <div className="ss-kb-card">
-          <PawPrint aria-hidden="true" className="ss-kb-paw ss-kb-paw1" size={54} fill="currentColor" strokeWidth={1.5} />
-          <PawPrint aria-hidden="true" className="ss-kb-paw ss-kb-paw2" size={46} fill="currentColor" strokeWidth={1.5} />
+          <PawPrint aria-hidden="true" className="ss-kb-paw ss-kb-paw1" size={40} fill="currentColor" strokeWidth={1.5} />
+          <PawPrint aria-hidden="true" className="ss-kb-paw ss-kb-paw2" size={36} fill="currentColor" strokeWidth={1.5} />
           <div className="ss-kb-bw">
             <img src={VERIFIED_BADGE} alt="SniffScout Verified Dog-Friendly Business badge" width={1536} height={1024} className="ss-kb-badge" loading="lazy" decoding="async" />
           </div>
