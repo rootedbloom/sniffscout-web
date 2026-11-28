@@ -17,6 +17,9 @@ const nextConfig = {
       { source: "/directory-old", destination: "/directory", permanent: true },
       { source: "/submit-a-place-old", destination: "/submit-a-place", permanent: true },
       { source: "/claim-your-business-old", destination: "/claim-your-business", permanent: true },
+      // Softr preview form pages that were linked before launch.
+      { source: "/claim-preview", destination: "/claim-your-business", permanent: true },
+      { source: "/submit-place-preview", destination: "/submit-a-place", permanent: true },
       // Softr's built-in account pages. The new site has no logins, so send visitors home.
       ...["/login", "/sign-up", "/account", "/forgot-password", "/reset-password", "/onboarding", "/link-expired", "/401"].map((source) => ({ source, destination: "/", permanent: false })),
     ];
