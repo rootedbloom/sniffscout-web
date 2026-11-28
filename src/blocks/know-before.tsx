@@ -22,6 +22,7 @@ const CSS = `
 .ss-kb-cp{color:#3A4A63;font-size:14.5px;line-height:1.5;font-weight:600;margin:6px 0 0;max-width:46ch}
 .ss-kb-checks{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
 .ss-kb-checks li{display:inline-flex;align-items:center;gap:7px;background:#FFF3EB;border:1px solid #FFD9C4;border-radius:999px;padding:6px 12px 6px 7px;color:#00163D;font-size:13.5px;font-weight:800;line-height:1.25}
+@media(max-width:374px){.ss-kb-checks li{font-size:12.5px;padding-right:10px;white-space:nowrap}}
 .ss-kb-ck{flex:none;display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#FF5A0A;color:#fff}
 @keyframes ss-kb-rise{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:none}}
 @keyframes ss-kb-pop{0%{transform:scale(.85) rotate(-4deg)}60%{transform:scale(1.04) rotate(1deg)}100%{transform:none}}
