@@ -103,6 +103,29 @@ const PAGE_CSS = `
 .ab-founder .ab-p{margin-bottom:20px}
 .ab-founder .ab-p:last-child{margin-bottom:0}
 .ab-ctasec{padding-top:28px!important}
+.ab-g{position:relative;overflow:hidden;max-width:960px;margin:0 auto;background:${NAVY};color:#fff;border:1.5px solid ${ORANGE};border-radius:28px;padding:28px 20px 0;display:grid;gap:4px;text-align:center;box-shadow:0 18px 40px -16px rgba(0,22,61,.45)}
+.ab-g.nodog{padding-bottom:28px}
+.ab-gtx{position:relative;z-index:1}
+.ab-g h2{font-size:clamp(28px,4vw,38px);line-height:1.1;margin:0 0 10px;color:#fff}
+.ab-g h2 em{font-style:normal;color:${ORANGE}}
+.ab-g p{font-size:16px;line-height:1.6;color:rgba(255,255,255,.9);margin:0 auto;max-width:560px}
+.ab-gbtns{display:flex;flex-direction:column;align-items:stretch;gap:10px;max-width:340px;margin:18px auto 14px}
+.ab-gb{display:inline-flex;align-items:center;justify-content:center;min-height:50px;border-radius:999px;font-weight:800;font-size:16px;text-decoration:none;padding:12px 22px;box-shadow:none;transition:transform .2s,background-color .2s}
+.ab-gb:hover{transform:translateY(-2px)}
+.ab-gb:focus-visible{outline:3px solid #FF9B68;outline-offset:3px}
+.ab-gb-or{background:${ORANGE};color:#fff}
+.ab-gb-or:hover{background:#FF6F2B}
+.ab-gb-wh{background:#fff;color:${NAVY}}
+.ab-gb-wh:hover{background:#FFF3EB}
+.ab-g .ab-gmail{font-size:14.5px;color:rgba(255,255,255,.88)}
+.ab-g .ab-gmail a{color:#FF9B68;font-weight:800}
+.ab-gdog{position:relative;display:flex;justify-content:center;align-items:flex-end;margin-top:6px}
+.ab-gdog img{display:block;width:auto;max-width:64%;max-height:190px;margin-left:auto;margin-right:8%;height:auto;position:relative;z-index:1}
+.ab-gtrail{position:absolute;left:6%;bottom:14px;display:flex;align-items:flex-end;gap:14px;color:${ORANGE};opacity:.45}
+.ab-gtrail svg{transform:rotate(90deg)}
+.ab-gtrail svg:nth-child(even){margin-bottom:12px}
+@media(min-width:760px){.ab-g{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);align-items:end;gap:20px;padding:40px 0 0 48px;text-align:left}.ab-g.nodog{grid-template-columns:1fr;padding:40px 48px;text-align:center}.ab-gtx{padding-bottom:36px}.ab-g.nodog .ab-gtx{padding-bottom:0}.ab-g p{margin:0;max-width:none}.ab-g.nodog p{margin:0 auto;max-width:600px}.ab-gbtns{flex-direction:row;flex-wrap:wrap;max-width:none;margin:22px 0 16px}.ab-g.nodog .ab-gbtns{justify-content:center}.ab-gdog{justify-content:flex-end;margin:0}.ab-gdog img{max-width:80%;max-height:330px;margin-right:0}.ab-gtrail{left:-8px;bottom:24px}}
+@media(prefers-reduced-motion:reduce){.ab-gb{transition:none}.ab-gb:hover{transform:none}}
 @media(max-width:759px){.ab-cta{padding:30px 18px}.ab-cta .btns{flex-direction:column;align-items:stretch;gap:12px;max-width:340px;margin-left:auto;margin-right:auto}.ab-cta .ab-btn{min-height:52px;width:100%}}
 @media(prefers-reduced-motion:reduce){.ab-deco{animation:none!important}.ab-card,.ab-btn{transition:none}}
 `;
@@ -124,6 +147,7 @@ export default function About() {
   const jamieBella = useImageSetting({ name: "photo-jamie-bella", initialValue: { src: "", alt: "" } });
   const bella = useImageSetting({ name: "photo-bella", initialValue: { src: "", alt: "" } });
   const couch = useImageSetting({ name: "photo-couch", initialValue: { src: "", alt: "" } });
+  const beagle = useImageSetting({ name: "photo-cta-beagle", initialValue: { src: "", alt: "Beagle in an orange SniffScout bandana sniffing the ground" } });
 
   return (
     <div className="ab">
@@ -221,15 +245,20 @@ export default function About() {
 
       <section className="ab-sec ab-ctasec" style={{ paddingTop: 28 }}>
         <div className="ab-w">
-          <div className="ab-cta">
-            <span className="ab-cpaw" aria-hidden="true"><PawPrint size={22} color="#fff" strokeWidth={2.6} /></span>
-            <h2>Help us sniff out the <em>good spots</em></h2>
-            <p>Know somewhere dogs get a warm welcome? Share it with the pack. Own a dog-friendly business? Claim your free listing and help visitors know what to expect.</p>
-            <div className="btns">
-              <a href="/submit-a-place" className="ab-btn ab-or">Submit a Dog-Friendly Spot</a>
-              <a href="/claim-your-business" className="ab-btn ab-ghw">Claim Your Free Listing</a>
+          <div className={"ab-g" + (beagle.src ? "" : " nodog")}>
+            <div className="ab-gtx">
+              <h2>Help Us Grow the <em>Pack!</em></h2>
+              <p>Know a great dog-friendly spot? Own a business that welcomes pups? Help us grow SniffScout and make it easier for dog lovers to discover their next favorite spot.</p>
+              <div className="ab-gbtns">
+                <a href="/submit-a-place" className="ab-gb ab-gb-or">Submit a Dog-Friendly Spot</a>
+                <a href="/claim-your-business" className="ab-gb ab-gb-wh">Claim Your Free Listing</a>
+              </div>
+              {CONTACT_EMAIL && <p className="ab-gmail">Have a question or an idea? Email me at <a href={"mailto:" + CONTACT_EMAIL}>{CONTACT_EMAIL}</a>. I read every message.</p>}
             </div>
-            {CONTACT_EMAIL && <p className="mail">Have a question or an idea? Email me at <a href={"mailto:" + CONTACT_EMAIL}>{CONTACT_EMAIL}</a>. I read every message.</p>}
+            {beagle.src && <div className="ab-gdog">
+              <span className="ab-gtrail" aria-hidden="true">{[0, 1, 2, 3].map((i) => <PawPrint key={i} size={16} fill="currentColor" strokeWidth={1.5} />)}</span>
+              <img src={beagle.src} alt={beagle.alt} loading="lazy" decoding="async" />
+            </div>}
           </div>
         </div>
       </section>
